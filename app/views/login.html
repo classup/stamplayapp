@@ -1,0 +1,31 @@
+<div ng-controller="AccountController">
+<div class="social-icons">
+     <div class="col_1_of_f span_1_of_f"><a href="https://getclassup.stamplayapp.com/auth/v1/facebook/connect">
+        <ul class='facebook'>
+          <i class="fb"> </i>
+          <li>Connect with Facebook</li>
+          <div class='clear'> </div>
+        </ul>
+        </a>
+     </div> 
+     </div>
+<div class="login-page">
+
+  <div class="form">
+
+    <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="username"/>
+      <input type="password" placeholder="password"/>
+      <button ng-click="login()">login</button>
+      <p class="message">Not registered? <a ui-sref="signup">Create an account</a></p>
+    </form>
+  </div>
+</div>
+</div>
+

@@ -1,0 +1,10 @@
+{
+  "appId": "getclassup",
+  "apiKey": "e8d0e17b699f3e6f0608fe62652455b8eb866509d5a0d720dc6596cef362645a",
+  "public": "./app/",
+  "ignore": [
+    "stamplay.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

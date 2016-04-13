@@ -1,0 +1,38 @@
+
+
+<div ng-controller="createClassCtrl">
+<div class="row">
+  <div class="col-md-12 col-sm-12" style="height:400px;">
+    <div class="row">
+    <div class="col-md-2" style="height:400px;overflow:auto">
+      <!-- <div class="row" ng-repeat="options in editOptions">
+        <a ui-sref="/{{options.field}}" ng-bind="options.name"><i class="icon fa fa-angle-right"></i></a>
+      </div> -->
+      <div class="row">
+        <footer>
+        <div class="pre-footer" style="padding: 0px">
+        <div class="quick-menu" >
+          <ul style="margin-top:0px">
+            <li ng-repeat="options in editOptions">
+              <a ui-sref="{{options.field}}" ng-bind="options.name" style="border:1px solid #DEDEDE;text-align:center;vertical-align:middle;min-height:40px">
+                  <i class="icon fa fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        </div>
+        </footer>
+      </div>
+
+    </div>
+    <div class="col-md-10" style="border-left: 1px solid #EDEDED;overflow:auto;padding:25px 0px">
+      <div ui-view=""></div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
