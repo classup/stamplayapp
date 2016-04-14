@@ -75,14 +75,14 @@ var app=angular
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
     Stamplay.init("getclassup");
 
-    /*AccountService.currentUser().then(function(res) {
+    AccountService.currentUser().then(function(res) {
         $rootScope.currentUser = res;
         $rootScope.role = res ? res.givenRole.name : false;
     },function(err){
       console.log('no currentUser');
     }
     );
-    */
+    
 }])
 
 
