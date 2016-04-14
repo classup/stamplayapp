@@ -41,7 +41,7 @@ var app=angular
 });*/
 
   app.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("main");
+    $urlRouterProvider.otherwise("homepage");
      $stateProvider
     .state('main', {
       url: "/main",
@@ -67,8 +67,9 @@ var app=angular
     })
     .state('homepage',{
       url: "/",
-      templateUrl: "views/classHomepage.html",
-      controller: 'homepageCtrl'
+      controller: 'homepageCtrl',
+      templateUrl: "views/classHomepage.html"
+      
     })
   })
 

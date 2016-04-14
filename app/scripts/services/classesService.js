@@ -64,11 +64,11 @@ angular.module("classupApp")
             return q.promise;
         },
 
-        getAllClassesOfCurrentUser :function(ownerId) {
+        getAllClassesOfCurrentUser :function() {
             var q= $q.defer();
-
+            console.log($rootScope.currentUser);
             Stamplay.Object("classes").get({
-                "owner" : ownerId
+                "owner" : $rootScope.currentUser.id
             }).then(function(res){
                 var classes = res.data;
                 q.resolve(classes);
