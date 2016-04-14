@@ -11,7 +11,9 @@ angular.module('classupApp')
   			console.log($rootScope);
   			$scope.classes = classes;
   		}
-  		
+  		$rootScope.$watch('currentUser',function(){
+      console.log($rootScope.currentUser);
+      if($rootScope.currentUser != undefined){
     	ClassesService.getAllClassesOfCurrentUser()
 			    .then(function(classes){
 			    	renderClassesList(classes);
@@ -19,4 +21,10 @@ angular.module('classupApp')
 			    	renderClassesList(classes);
 			    	console.log(err+' in getting classes list of current user');
 			    });
+      }
+      else{
+
+        console.log($rootScope.currentUser+' still undefined');
+      }
+    });
   }]);

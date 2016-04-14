@@ -75,7 +75,7 @@ angular.module("classupApp")
             },function(err){
                 q.reject(err);
             })
-            return q.promise;s
+            return q.promise;
         }
 }
   }])
