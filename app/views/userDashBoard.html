@@ -199,12 +199,9 @@
                   <h3 class="title">Your Classes</h3>
                   <div class="separator-2"></div>
                   <nav>
-                    <ul class="nav nav-pills nav-stacked">
-                      <li class="active"><a href="index.html">Home</a></li>
-                      <li><a href="blog-large-image-right-sidebar.html">Blog</a></li>
-                      <li><a href="portfolio-grid-2-3-col.html">Portfolio</a></li>
-                      <li><a href="page-about.html">About</a></li>
-                      <li><a href="page-contact.html">Contact</a></li>
+                    <ul class="nav nav-pills nav-stacked" ng-repeat="class in classes">
+                      <li><a href="index.html">{{class.name}}</a></li>
+                      
                     </ul>
                   </nav>
                 </div>
