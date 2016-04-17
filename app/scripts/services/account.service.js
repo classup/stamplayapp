@@ -2,12 +2,16 @@ angular.module("classupApp")
 .factory("AccountService", ["$q", "$http", "$stamplay", function($q, $http, $stamplay) {
     return {
         login : function(user) {
+            var q = $q.defer();
             $stamplay.User.login(user)
                 .then(function(res){
+                    q.resolve(res);
                     console.log('login successful');
                 },function(err){
+                    q.resolve(false);
                     console.log('error in login ' + err );
                 });
+                return q.promise;
         },
         logout : function() {
             // SWITCH TO GITHUB

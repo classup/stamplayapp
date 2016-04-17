@@ -12,43 +12,68 @@
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
+
+    <!--from the new template -->
+    <!-- Bootstrap core CSS -->
+    <!-- Favicon -->
+        <link rel="shortcut icon" href="images/favicon.ico">
+
+        <!-- Web Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <!-- Font Awesome CSS -->
+        <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+        <!-- Fontello CSS -->
+        <link href="fonts/fontello/css/fontello.css" rel="stylesheet">
+
+        <!-- Plugins -->
+        <link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+        <link href="styles/animations.css" rel="stylesheet">
+        <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+        <link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+        <link href="plugins/hover/hover-min.css" rel="stylesheet">     
+        <link href="plugins/jquery.countdown/jquery.countdown.css" rel="stylesheet"> 
+        
+        <!-- The Project core CSS file -->
+        <link href="styles/style2.css" rel="stylesheet" >
+        <!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
+        <link href="styles/skins/blue.css" rel="stylesheet">
+
+        <!-- Custom css --> 
+        <link href="styles/custom.css" rel="stylesheet">
+
+    <!--from the new template end-->
+
+
     <!-- build:css(.tmp) styles/main.css -->
     <!-- Bootstrap Core CSS -->
-    <link href="styles/bootstrap.min.css" rel="stylesheet">
-    <link href="styles/style.css" rel="stylesheet">
-    <link href="styles/main.css" rel="stylesheet">
+    <!-- <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet"> 
+    <link href="styles/main.css" rel="stylesheet">-->
     <!-- Custom CSS -->
-    <link href="styles/landing-page.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="styles/landing-page.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css"> -->
+    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- endbuild -->
   </head>
-  <body ng-app="classupApp">
+  
+<body ng-app="classupApp">
+    <div ui-view ng-animate="" ></div>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div ng-include="'../includes/header-navbar-1.html'"></div>
-    <div ui-view=""></div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <!-- <div ng-include="'../includes/header-navbar-1.html'"></div> -->
+    
+        <!-- page-wrapper end -->
+         <script src="bower_components/angular/angular.js"></script>
+          <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -64,20 +89,37 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+        <!-- JavaScript files placed at the end of the document so the pages load faster -->
+        <!-- ================================================== -->
+        <!-- Jquery and Bootstap core js files -->
+        <script type="text/javascript" src="plugins/jquery.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- Modernizr javascript -->
+        <script type="text/javascript" src="plugins/modernizr.js"></script>
+        <!-- Magnific Popup javascript -->
+        <script type="text/javascript" src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <!-- Appear javascript -->
+        <script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
+        <!-- Count To javascript -->
+        <script type="text/javascript" src="plugins/jquery.countTo.js"></script>
+        <!-- Parallax javascript -->
+        <script src="plugins/jquery.parallax-1.1.3.js"></script>
+        <!-- Contact form -->
+        <script src="plugins/jquery.validate.js"></script>
+        <!-- Owl carousel javascript -->
+        <script type="text/javascript" src="plugins/owl-carousel/owl.carousel.js"></script>
+        <!-- SmoothScroll javascript -->
+        <script type="text/javascript" src="plugins/jquery.browser.js"></script>
+        <script type="text/javascript" src="plugins/SmoothScroll.js"></script>
+        <!-- Initialization of Plugins -->
+        <script type="text/javascript" src="scripts/templatejs/template.js"></script>
+        <!-- Custom Scripts -->
+        <script type="text/javascript" src="scripts/templatejs/custom.js"></script>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        
 
+        <script type="text/javascript" src="bower_components/prefix-free/prefixfree.js"></script> <script type="text/javascript" src="bower_components/less/dist/less.min.js"></script> <!-- <script type="text/javascript" src="bower_components/angular.js/angular.min.js"></script> --> <script type="text/javascript" src="bower_components/angular.less/angular.less.js"></script>
 
-        <!-- jQuery -->
-    <script src="scripts/templatejs/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="scripts/templatejs/bootstrap.min.js"></script>
-    <script src="scripts/facebook/facebook.js"></script>
-    <script src="scripts/app.js"></script>
+        <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/createClassController.js"></script>
         <script src="scripts/controllers/loginController.js"></script>
@@ -87,11 +129,6 @@
         <script src="scripts/services/classesService.js"></script>
         <script src="scripts/services/account.service.js"></script>
     
-    <!-- <script src="//drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/2.0.5/stamplay.min.js"></script>
-     -->
-    <!-- <script src="scripts/templatejs/js.js"></script> 
-    <script src="scripts/templatejs/style.selector.js"></script>
-    <script src="scripts/templatejs/google.map.js"></script> -->
-        <!-- endbuild -->
-</body>
+
+    </body>
 </html>

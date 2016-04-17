@@ -14,14 +14,14 @@
     "angular-stamplay": "*",
     "angular-ui-router": "~0.2.15",
     "angular-bootstrap": "~0.14.3",
-    "angular-material":"*"
-
+    "angular-material": "*",
+    "angular.less": "*"
   },
   "ignore": [
     "**/.*",
     "node_modules"
   ],
-   "devDependencies": {
+  "devDependencies": {
     "angular-mocks": "^1.3.0",
     "underscore": "~1.8.3",
     "angular-ui-router": "~0.2.18",

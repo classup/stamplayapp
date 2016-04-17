@@ -28,6 +28,36 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    less: {
+                 development: {
+                     options: {
+                         paths: ["app/less"]
+                         
+                     },
+                     files: {
+                      "app/styles/mixins.css": "app/less/mixins.less",
+                      "app/styles/mixins/opacity.css": "app/less/mixins/opacity.less",
+                      "app/styles/7_blocks-widgets.css": "app/less/7_blocks-widgets.less",
+                      "app/styles/10_full-page.css": "app/less/10_full-page.less",
+                      "app/styles/1_typography.css": "app/less/1_typography.less",
+                      "app/styles/2_layout.css": "app/less/2_layout.less",
+                      "app/styles/3_sections.css": "app/less/3_sections.less",
+                      "app/styles/4_pages.css": "app/less/4_pages.less",
+                      "app/styles/5_components.css": "app/less/5_components.less",
+                      "app/styles/6_navigations.css": "app/less/6_navigations.less",
+                      "app/styles/8_main-slideshow.css": "app/less/8_main-slideshow.less",
+                      "app/styles/9_owl-carousel.css": "app/less/9_owl-carousel.less"
+                    }
+                     
+                 },
+                 production: {
+                     options: {
+                         paths: ["assets/css"],
+                         cleancss: true
+                     },
+                     files: {"path/to/result.css": "path/to/source.less"}
+                 }
+             },
     // Project settings
     yeoman: appConfig,
 
@@ -439,6 +469,7 @@ module.exports = function (grunt) {
       'postcss:server',
       'connect:livereload',
       'watch'
+
     ]);
   });
 
@@ -453,7 +484,8 @@ module.exports = function (grunt) {
     'concurrent:test',
     'postcss',
     'connect:test',
-    'karma'
+    'karma',
+    'less'
   ]);
 
   grunt.registerTask('build', [

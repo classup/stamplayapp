@@ -55,9 +55,10 @@ var app=angular
       url: "/login",
       templateUrl: "views/login.html"
     })
-    .state('createClass', {
-      url: "/createClass",
-      templateUrl: "views/createClass.html"
+    .state('dashboard', {
+      url: "/dashboard",
+      controller: 'homepageCtrl',
+      templateUrl: "views/userDashBoard.html",
     })
     .state('aboutUs', { 
       url: "/aboutUs",
@@ -66,10 +67,9 @@ var app=angular
     })
     .state('homepage',{
       url: "/",
-      controller: 'homepageCtrl',
       templateUrl: "views/classHomepage.html"
       
-    })
+    });
   })
 
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
