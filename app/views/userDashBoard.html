@@ -194,14 +194,17 @@
             <!-- sidebar start -->
             <!-- ================ -->
             <aside class="col-md-4 col-lg-3 col-lg-offset-1">
+            <p>
+            <a href="#" class="btn btn-lg btn-gray-transparent btn-animated">Create New Class<i class="fa fa-arrow-right pl-20"></i>
+            </a>
+            </p>
               <div class="sidebar">
                 <div class="block clearfix">
-                  <h3 class="title">Your Classes</h3>
+                  <h3 class="title">YOUR CLASSES</h3>
                   <div class="separator-2"></div>
                   <nav>
                     <ul class="nav nav-pills nav-stacked" ng-repeat="class in classes">
-                      <li><a href="index.html">{{class.name}}</a></li>
-                      
+                      <li><a ui-sref="classes({id:class.id,name:class.name})">{{class.name}}</a></li>
                     </ul>
                   </nav>
                 </div>

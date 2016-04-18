@@ -69,7 +69,12 @@ var app=angular
       url: "/",
       templateUrl: "views/classHomepage.html"
       
-    });
+    })
+    .state('classes',{
+      url:"/classes/:name",
+      controller: "classHomepageCtrl",
+      templateUrl: "views/classHomepage.html"
+    })
   })
 
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
