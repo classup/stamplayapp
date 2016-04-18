@@ -1,10 +1,13 @@
 angular.module("classupApp")
 .controller("AccountController", 
-  ["AccountService", "$window", "$document", "$scope", "$rootScope", "$stateParams", 
-  function(AccountService, $window, $document, $scope, $rootScope, $stateParams) {
+  ["$q","AccountService","$state", "$window", "$document", "$scope", "$rootScope", "$stateParams", 
+  function($q,AccountService,$state, $window, $document, $scope, $rootScope, $stateParams) {
 
   $scope.login = function() {
-    AccountService.login();
+    AccountService.login()
+    .then(function(){
+      $state.go('dashboard')
+    },function(){console.log("not a great choice")});
   }
 
   $scope.logout = function() {
