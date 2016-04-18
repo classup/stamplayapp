@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('classupApp')
-	.controller('classHomepageCtrl',["ClassesService","$q"
+	.controller('classHomepageCtrl',["$scope","$state","$stateParams","ClassesService","$q",
 		function($scope,$state,$stateParams,ClassesService,$q){
 		console.log($stateParams.id);
 

@@ -41,7 +41,7 @@ var app=angular
 });*/
 
   app.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("homepage");
+    $urlRouterProvider.otherwise("dashboard");
      $stateProvider
     .state('main', {
       url: "/main",
@@ -74,6 +74,11 @@ var app=angular
       url:"/classes/:name",
       controller: "classHomepageCtrl",
       templateUrl: "views/classHomepage.html"
+    })
+    .state('createClass',{
+      url:"/classes/new",
+      controller: "createClassCtrl",
+      templateUrl: "views/editClassProfile.html"
     })
   })
 
