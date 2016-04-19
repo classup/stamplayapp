@@ -71,9 +71,12 @@ var app=angular
       
     })
     .state('classes',{
-      url:"/classes/:name",
+      url:"/classes/:id",
       controller: "classHomepageCtrl",
-      templateUrl: "views/classHomepage.html"
+      templateUrl: "views/classHomepage.html",
+      params: {
+        id:null
+      }
     })
     .state('createClass',{
       url:"/createClass",
