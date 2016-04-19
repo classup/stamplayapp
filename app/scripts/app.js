@@ -76,10 +76,11 @@ var app=angular
       templateUrl: "views/classHomepage.html"
     })
     .state('createClass',{
-      url:"/classes/new",
+      url:"/createClass",
       controller: "createClassCtrl",
       templateUrl: "views/editClassProfile.html"
     })
+    
   })
 
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {

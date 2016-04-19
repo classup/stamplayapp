@@ -6,8 +6,9 @@ angular.module("classupApp")
       createClass : function(details) {
             var q = $q.defer();
             $stamplay.Object("classes").save(details)
-            .then(function(res) {
-                q.resolve();
+            .then(function(classes) {
+                console.log(classes.name+ " class created");
+                q.resolve(classes);
             })
             return q.promise;
         },
