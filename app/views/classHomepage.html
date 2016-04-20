@@ -1,7 +1,8 @@
 <div ng-controller="classHomepageCtrl">
-<div ng-include="'../views/classheader.html'"></div>
+<div ng-include="'../views/classHeader.html'"></div>
       <!-- banner start -->
       <!-- ================ -->
+      <div class="no-trans front-page transparent-header  ">
       <div class="banner clearfix">
 
         <!-- slideshow start -->
@@ -412,7 +413,65 @@
         </div>
       </section>
       <!-- section end -->
+      <!-- main-container start -->
+      <!-- ================ -->
+      <section class="main-container">
 
+        <div class="container">
+          <div class="row">
+
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main col-md-12">
+
+              <!-- page-title start -->
+              <!-- ================ -->
+              <h2 class="text-center">OUR <strong>SUBJECTS</strong></h2>
+              <div class="separator-2"></div>
+              <!-- page-title end -->
+              
+
+
+              <!-- isotope filters start -->
+              <!-- <div class="filters">
+                <ul class="nav nav-pills">
+                  <li class="active"><a href="#" data-filter="*">All</a></li>
+                  <li><a href="#" data-filter=".web-design">Web design</a></li>
+                  <li><a href="#" data-filter=".app-development">App development</a></li>
+                  <li><a href="#" data-filter=".site-building">Site building</a></li>
+                </ul>
+              </div> -->
+              <!-- isotope filters end -->
+
+              <!-- <div class="isotope-container-fitrows row grid-space-10"> -->
+              <div ng-repeat="subject in classDetails.subjects">
+                
+                <div class="col-sm-6 col-md-3 isotope-item app-development">
+                  <div class="image-box style-2 mb-20 shadow bordered light-gray-bg text-center">
+                    <div class="overlay-container">
+                      <img src="images/portfolio-2.jpg" alt="">
+                      <div class="overlay-to-top">
+                        <p class="small margin-clear"><em>App development <br> Lorem ipsum dolor sit</em></p>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <h3>{{subject.name}}</h3>
+                      <div class="separator"></div>
+                      <p>{{subject.description}}</p>
+                      <a href="portfolio-item.html" class="btn btn-default btn-sm btn-hvr hvr-shutter-out-horizontal margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                    </div>
+                  </div>
+                </div>
+                
+              <!-- </div> -->
+
+            </div>
+            <!-- main end -->
+
+          </div>
+        </div>
+      </section>
+      <!-- main-container end -->
       <!-- section start -->
       <!-- ================ -->
       <section class="light-gray-bg pv-20">
@@ -704,3 +763,4 @@
         </div>
         </section>
         </div>
+</div>

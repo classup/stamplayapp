@@ -53,7 +53,7 @@ angular.module("classupApp")
 
             Stamplay.Object("classes").get({
                 "_id" : id,
-                populate_owner : true
+                populate : true
             }).then(function(res) {
                 var classes = res.data[0];
                q.resolve(classes);
