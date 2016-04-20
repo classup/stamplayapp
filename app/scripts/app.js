@@ -72,20 +72,24 @@ var app=angular
     })
     .state('classes',{
       url:"/classes/:id",
-      controller: "classHomepageCtrl",
-      templateUrl: "views/classHomepage.html",
+      templateUrl:'views/classHeader.html'
+    })
+    .state('classes.viewProfile',{
+      url: '',
+      controller: 'classHomepageCtrl',
+      templateUrl: 'views/classHomepage.html',
       params: {
         id:null
       }
     })
-    .state('createClass',{
-      url:"/createClass",
-      controller: "createClassCtrl",
+    .state('classes.editClassProfile',{
+      url:"/editClassProfile",
+      controller: "editClassProfileCtrl",
       templateUrl: "views/editClassProfile.html"
+
     })
     
   })
-
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
     Stamplay.init("getclassup");
 
