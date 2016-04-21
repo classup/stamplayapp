@@ -72,10 +72,12 @@ var app=angular
     })
     .state('classes',{
       url:"/classes/:id",
+      abstract:true,
       templateUrl:'views/classHeader.html'
     })
     .state('classes.viewProfile',{
       url: '',
+      parent:'classes',
       controller: 'classHomepageCtrl',
       templateUrl: 'views/classHomepage.html',
       params: {
@@ -84,9 +86,12 @@ var app=angular
     })
     .state('classes.editClassProfile',{
       url:"/editClassProfile",
+      parent:'classes',
       controller: "editClassProfileCtrl",
-      templateUrl: "views/editClassProfile.html"
-
+      templateUrl: "views/editClassProfile.html",
+      params:{
+        classDetails:null
+      }
     })
     
   })
