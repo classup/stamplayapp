@@ -8,7 +8,7 @@
  * File Description: Initializations of plugins
  */
 
-(function($){
+
 	$(document).ready(function(){
 
 		if ($('.boxed .fullscreen-bg').length>0) {
@@ -16,6 +16,7 @@
 		};
 
 		$(window).load(function() {
+			console.log('removing');
 			$("body").removeClass("no-trans");
 		});
 		// Enable Smooth Scroll only on Chrome and only on Win and Linux Systems
@@ -1111,6 +1112,11 @@
 		};
 
 		// Animations
+		setTimeout(function() {
+							
+							//animatedObject.addClass('animated object-visible ' + animatedObject.attr("data-animation-effect"));
+						}, 1000);
+		console.log($("[data-animation-effect]"));
 		//-----------------------------------------------
 		if ($("[data-animation-effect]").length>0) {
 			$("[data-animation-effect]").each(function() {
@@ -1119,6 +1125,7 @@
 						var appearDelay = $(this.element).attr("data-effect-delay"),
 						animatedObject = $(this.element);
 						setTimeout(function() {
+							console.log('it is coming here');
 							animatedObject.addClass('animated object-visible ' + animatedObject.attr("data-animation-effect"));
 						}, appearDelay);
 						this.destroy();
@@ -1843,7 +1850,7 @@
 
 	}); // End document ready
 
-})(this.jQuery);
+
 
 if (jQuery(".btn-print").length>0) {
 	function print_window() {
