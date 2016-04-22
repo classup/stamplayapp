@@ -9,6 +9,8 @@ angular.module("classupApp")
             .then(function(classes) {
                 console.log(classes.name+ " class created");
                 q.resolve(classes);
+            },function(err){
+                console.log(err);
             })
             return q.promise;
         },
@@ -43,7 +45,7 @@ angular.module("classupApp")
 
                 q.resolve(res);
 
-            })
+            });
 
             return q.promise;
         },
@@ -61,7 +63,7 @@ angular.module("classupApp")
 
             }, function(err) {
                 q.reject(err);
-            })
+            });
             return q.promise;
         },
 
@@ -75,7 +77,7 @@ angular.module("classupApp")
                 q.resolve(classes);
             },function(err){
                 q.reject(err);
-            })
+            });
             return q.promise;
         }
 }

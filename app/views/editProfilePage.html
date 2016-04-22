@@ -1,7 +1,8 @@
 <div class="section light-gray-bg">
 				<div class="container">
-					<h2>Form elements (Gray Background)</h2>
+					
 					<form role="form">
+					<h2>Class Profile</h2>
 						<div class="row">
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
@@ -9,43 +10,68 @@
 									<input type="text" ng-model="classes.name" class="form-control" id="name" required>
 								</div>
 							</div>
+							
+						</div>
+						<div class="row">
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Tagline</label>
 									<input type="text" ng-model="classes.tagline" class="form-control" id="inputWarning3">
-									<i class="fa fa-warning form-control-feedback"></i>
+									
 								</div>
 							</div>
+							
+						</div>
+
+						<h2>Streams</h2>
+						<div class="row">
 							<div class="col-md-4">
-								<div class="form-group has-error has-feedback">
-									<label class="control-label" for="inputError3">Input with error</label>
-									<input type="text" class="form-control" id="inputError3">
-									<i class="fa fa-times form-control-feedback"></i>
+								<div class="form-group has-success has-feedback">
+									<label class="control-label">Select Streams</label>
+									
+									<select ng-model="classes.testimonial.title" multiple="" class="form-control">
+										
+										<option ng-repeat="stream in streams.data">{{stream.name}}</option>
+									
+									</select>
 								</div>
 							</div>
+							
+						</div>
+						<h2>Subjects</h2>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group has-success has-feedback">
+									<label class="control-label">Select Subjects</label>
+									<select ng-model="classes.testimonial.title" multiple="" class="form-control">
+										
+										<option ng-repeat="subject in subjects.data">{{subject.name}}</option>
+									
+									</select>
+									
+								</div>
+							</div>
+							
+						</div>
+						<h2>Testimonials</h2>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group has-success has-feedback">
+									<label class="control-label">Title</label>
+									<input type="text" ng-model="classes.testimonial.title" class="form-control" id="name" required>
+								</div>
+							</div>
+							
 						</div>
 						<div class="row">
 							<div class="col-md-4">
-								<div class="form-group has-feedback">
-									<label class="control-label">Username</label>
-									<input type="text" class="form-control">
-									<i class="fa fa-user form-control-feedback"></i>
+								<div class="form-group has-success has-feedback">
+									<label class="control-label">What do they say</label>
+									<input type="text" ng-model="classes.testimonial.text" class="form-control" id="inputWarning3">
+									
 								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group has-feedback">
-									<label class="control-label">Password</label>
-									<input type="password" class="form-control">
-									<i class="fa fa-lock form-control-feedback"></i>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group has-feedback">
-									<label class="control-label">Email</label>
-									<input type="email" class="form-control">
-									<i class="fa fa-envelope-o form-control-feedback"></i>
-								</div>
-							</div>
+							
 						</div>
 					</form>
 					<form role="form">

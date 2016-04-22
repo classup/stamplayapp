@@ -18,11 +18,11 @@ angular.module('classupApp')
        ClassesService.createClass($scope.class)
        .then(function(classes){
         console.log(classes);
-       $state.go('classes',{id:classes.id,name:classes.name});
+       $state.go('classes.viewProfile',{id:classes.id,name:classes.name});
         },function(err){
           console.log('error in creating class : '+err);
         });
        
     }
-    
+
   }]);

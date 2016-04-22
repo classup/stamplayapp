@@ -14,14 +14,16 @@ angular.module('classupApp')
   		console.log($stateParams.id);
     	ClassesService.getClassesDetails($stateParams.id)
     	.then(function(classDetails){
-    		console.log(classDetails.teachers);
+    		console.log(classDetails);
     		renderClassDetails(classDetails);
     	},function(err){
     		console.log(err+ ' : in getting the class details');
     	});
 
     	function renderClassDetails(classDetails){
+
     		$scope.classDetails = classDetails;
+        console.log($scope.classDetails);
     	}
     /*  console.log($("[data-animation-effect]").length);
     if ($("[data-animation-effect]").length>0) {
