@@ -93,7 +93,36 @@ var app=angular
         classDetails:null
       }
     })
-    
+    .state('classes.editClassProfile.editProfile',{
+      url:"",
+      parent:'classes.editClassProfile',
+      templateUrl: 'views/editProfilePage.html'
+
+    })
+    .state('classes.editClassProfile.editStreams',{
+      url:"",
+      parent:'classes.editClassProfile',
+      templateUrl: 'views/editStreamsPage.html'
+
+    })
+    .state('classes.editClassProfile.editSubjects',{
+      url:"",
+      parent:'classes.editClassProfile',
+      templateUrl: 'views/editSubjectPage.html'
+
+    })
+    .state('classes.editClassProfile.editTeachers',{
+      url:"",
+      parent:'classes.editClassProfile',
+      templateUrl: 'views/editTeachersPage.html'
+
+    })
+    .state('classes.editClassProfile.editContact',{
+      url:"",
+      parent:'classes.editClassProfile',
+      templateUrl: 'views/editContactPage.html'
+
+    })
   })
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
     Stamplay.init("getclassup");
