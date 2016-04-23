@@ -67,7 +67,7 @@ var app=angular
     })
     .state('homepage',{
       url: "/",
-      templateUrl: "views/classHomepage.html"
+      templateUrl: "views/newClassHomepage.html"
       
     })
     .state('classes',{
@@ -79,7 +79,7 @@ var app=angular
       url: '',
       parent:'classes',
       controller: 'classHomepageCtrl',
-      templateUrl: 'views/classHomepage.html',
+      templateUrl: 'views/newClassHomepage.html',
       params: {
         id:null
       }
@@ -88,7 +88,7 @@ var app=angular
       url:"/editClassProfile",
       parent:'classes',
       controller: "editClassProfileCtrl",
-      templateUrl: "views/editClassProfile.html",
+      templateUrl: "views/editProfilePage.html",
       params:{
         classDetails:null
       }

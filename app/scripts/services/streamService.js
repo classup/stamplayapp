@@ -35,6 +35,17 @@ angular.module("classupApp")
 
   			 	});
   			 	return q.promise;
-  		}
+  		},
+
+      getOtherStreams : function(classId){
+        var q = $q.defer();
+         $stamplay.Query("object","streams").notEqual('id',classId)
+          .then(function(streams){
+            q.resolve(streams);
+          },function(error){
+
+          });
+          return q.promise;
+      }
   	}
   }]);

@@ -1,14 +1,17 @@
 angular.module('classupApp')
-	.controller('editClassProfileCtrl',['$scope','$state','$stateParams','StreamService','SubjectService',
-		function($scope,$state,$stateParams,StreamService,SubjectService){
-		console.log('here it is');
+	.controller('editClassProfileCtrl',['$scope','$state','$stateParams','StreamService','SubjectService','ClassesService',
+		function($scope,$state,$stateParams,StreamService,SubjectService,ClassesService){
+		console.log('here it is'+ $stateParams.id);
 		$scope.classes = {};
-		console.log('yo'+$stateParams.classDetails);
-		$scope.classes = $stateParams.classDetails;
+		
 		$scope.streams = {};
 		$scope.subjects = {};
 		
-
+		//console.log(StreamService.getOtherStreams($stateParams.id));
+		ClassesService.getClassesDetails($stateParams.id)
+		.then(function(classes){
+			$scope.classes = classes;
+		});
 		StreamService.getStreams()
 			.then(function(streams){
 				$scope.streams = streams;
@@ -16,14 +19,14 @@ angular.module('classupApp')
 			},function(error){
 				console.log('error in getting streams: '+error);
 			});
-		StreamService.getSubjects()
+		SubjectService.getSubjects()
 			.then(function(subjects){
 				$scope.subjects = subjects;
 				console.log($scope.subjects.data[0]);
 			},function(error){
 				console.log('error in getting subjects: '+error);
 			});
-		$scope.addStream = function(){
+		$scope.addNewStream = function(){
 			StreamService.addStream($scope.stream)
 				.then(function(stream){
 					$scope.stream.push(stream);
@@ -33,4 +36,9 @@ angular.module('classupApp')
 		$scope.getStreams = function(){
 			
 		};
+
+		$scope.addStream = function(){
+			$scope.classes.streams.push($scope.streamsOptions);
+		};
+
 	}]);
