@@ -10,7 +10,7 @@
 angular.module('classupApp')
   .controller('classHomepageCtrl',['$q','$scope','$rootScope','$state','ClassesService','$stateParams',
   	function ($q,$scope,$rootScope,$state,ClassesService,$stateParams) {
-    	
+    	$scope.subjectList = {};
   		console.log($stateParams.id);
     	ClassesService.getClassesDetails($stateParams.id)
     	.then(function(classDetails){
@@ -23,8 +23,22 @@ angular.module('classupApp')
     	function renderClassDetails(classDetails){
 
     		$scope.classDetails = classDetails;
+        
+        makeSubjectStreamList(classDetails);
         console.log($scope.classDetails);
     	}
+
+      function makeSubjectStreamList(classDetails){
+        var subjects = classDetails.subjects;
+        var streams = classDetails.streams;
+        var streamSubject = {};
+        angular.forEach(streams,function(key,value){
+          angular.forEach(subjects, function(key, value){
+            
+        })
+        })
+        
+      }
     /*  console.log($("[data-animation-effect]").length);
     if ($("[data-animation-effect]").length>0) {
       $("[data-animation-effect]").each(function() {
