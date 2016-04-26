@@ -22,12 +22,27 @@
 							</div>
 							
 						</div>
-
-						<h2>Streams</h2>
+						<h2>Domain</h2>
 						<div class="row">
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
-									<label class="control-label">Add More Streams</label>
+									<label class="control-label">Select your domain</label>
+									
+									<select ng-model="classes.domains" multiple="" class="form-control">
+										
+										<option ng-repeat="domain in domains">{{domain.name}}</option>
+									
+									</select>
+
+									<button ng-click="addDomain()" class="btn btn-default">Add Domain</button>
+								</div>
+							</div>
+						</div>
+						<h2>Courses</h2>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group has-success has-feedback">
+									<label class="control-label">Add More Courses</label>
 									
 									<select ng-model="streamsOptions" multiple="" class="form-control">
 										
@@ -35,20 +50,20 @@
 									
 									</select>
 
-									<div ng-click="addStream()" class="btn btn-default"><a>Add Streams</a></div>
+									<button ng-click="addStream()" class="btn btn-default">Add Courses</button>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
-									<label class="control-label">Your Streams</label>
+									<label class="control-label">Your Courses</label>
 									
 									<select ng-model="classes.streams" multiple="" class="form-control">
 										
-										<option ng-repeat="stream in classes.streams track by $index"">{{stream.name}}</option>
+										<option ng-repeat="stream in classes.streams track by $index">{{stream.name}}</option>
 									
 									</select>
 
-									<button ng-click="addStreams()" class="btn btn-default">Add Streams</button>
+									<button ng-click="addStreams()" class="btn btn-default">Add Courses</button>
 								</div>
 							</div>
 							
@@ -84,7 +99,7 @@
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Title</label>
-									<input type="text" ng-model="classes.testimonial.title" class="form-control" id="name" required>
+									<input type="text" ng-model="classes.testimonial.title" class="form-control" id="name">
 								</div>
 							</div>
 							

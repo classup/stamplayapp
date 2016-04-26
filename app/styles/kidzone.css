@@ -348,7 +348,7 @@ nav.navbar .navbar-header .navbar-toggle i {
   }
 }
 nav.navbar .navbar-nav .menu-item {
-  padding-top: 45px;
+  padding-top: 5px;
   padding-bottom: 47px;
 }
 nav.navbar .navbar-nav > li:hover ul.sub-menu {

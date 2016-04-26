@@ -16,7 +16,7 @@ angular.module('classupApp')
     	.then(function(classDetails){
     		console.log(classDetails);
     		renderClassDetails(classDetails);
-        makeSubjectStreamList(classDetails);
+       
     	},function(err){
     		console.log(err+ ' : in getting the class details');
     	});
@@ -28,7 +28,7 @@ angular.module('classupApp')
         console.log($scope.classDetails);
     	}
 
-
+/*
       function makeSubjectStreamList(classDetails){
         var subjects = classDetails.subjects;
         var streamSubject = {};
@@ -38,7 +38,7 @@ angular.module('classupApp')
         })
         
         
-      }
+      }*/
 
       /*function makeSubjectStreamList(classDetails){
         var subjects = classDetails.subjects;var streams = classDetails.streams;
