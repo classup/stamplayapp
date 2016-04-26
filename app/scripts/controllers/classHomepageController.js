@@ -8,14 +8,15 @@
  * Controller to create Classes
  */
 angular.module('classupApp')
-  .controller('classHomepageCtrl',['$q','$scope','$rootScope','$state','ClassesService','$stateParams',
-  	function ($q,$scope,$rootScope,$state,ClassesService,$stateParams) {
+  .controller('classHomepageCtrl',['$q','$scope','$rootScope','$state','ClassesService','$stateParams','StreamService',
+  	function ($q,$scope,$rootScope,$state,ClassesService,$stateParams,StreamService) {
     	$scope.subjectList = {};
   		console.log($stateParams.id);
     	ClassesService.getClassesDetails($stateParams.id)
     	.then(function(classDetails){
     		console.log(classDetails);
     		renderClassDetails(classDetails);
+        makeSubjectStreamList(classDetails);
     	},function(err){
     		console.log(err+ ' : in getting the class details');
     	});
@@ -24,21 +25,27 @@ angular.module('classupApp')
 
     		$scope.classDetails = classDetails;
         
-        makeSubjectStreamList(classDetails);
         console.log($scope.classDetails);
     	}
 
-      function makeSubjectStreamList(classDetails){
-        var subjects = classDetails.subjects;
-        var streams = classDetails.streams;
+      /*function makeSubjectStreamList(classDetails){
+        var subjects = classDetails.subjects;var streams = classDetails.streams;
         var streamSubject = {};
-        angular.forEach(streams,function(key,value){
-          angular.forEach(subjects, function(key, value){
-            
-        })
-        })
-        
-      }
+        var streams = [];
+          angular.forEach(subjects, function(value, key){
+            console.log('streamid'+subjects[key].streams);
+            StreamService.getStream(subjects[key].streams)
+            .then(function(stream){
+              console.log(stream);
+              streams.push(stream);
+            });
+           
+           console.log('streams: '+streams);
+        });
+        };
+     */
+      
+
     /*  console.log($("[data-animation-effect]").length);
     if ($("[data-animation-effect]").length>0) {
       $("[data-animation-effect]").each(function() {

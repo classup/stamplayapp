@@ -30,6 +30,7 @@ angular.module("classupApp")
   			 	id : streamId
   			 })
   			 	.then(function(streams){
+            console.log(streams+' from service');
   			 		q.resolve(streams);
   			 	},function(error){
 
