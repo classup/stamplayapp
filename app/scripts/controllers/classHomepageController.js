@@ -30,13 +30,12 @@ angular.module('classupApp')
 
       function makeSubjectStreamList(classDetails){
         var subjects = classDetails.subjects;
-        var streams = classDetails.streams;
         var streamSubject = {};
-        angular.forEach(streams,function(key,value){
-          angular.forEach(subjects, function(key, value){
+        
+        angular.forEach(subjects, function(key, value){
             
         })
-        })
+        
         
       }
     /*  console.log($("[data-animation-effect]").length);
