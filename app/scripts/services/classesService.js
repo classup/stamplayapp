@@ -89,9 +89,9 @@ angular.module("classupApp")
                 .then(function(classes){
                     q.resolve(classes);
                 },function(err){
-                    q.resolve(err);
+                    q.reject(err);
                 });
-                q.promise;
+                return q.promise;
             }
         }
 }

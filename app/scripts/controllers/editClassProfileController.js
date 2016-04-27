@@ -1,9 +1,9 @@
 angular.module('classupApp')
-	.controller('editClassProfileCtrl',['$scope','$state','$stateParams','StreamService','SubjectService','ClassesService',
-		function($scope,$state,$stateParams,StreamService,SubjectService,ClassesService){
+	.controller('editClassProfileCtrl',['$q','$scope','$state','$stateParams','StreamService','SubjectService','ClassesService',
+		function($q,$scope,$state,$stateParams,StreamService,SubjectService,ClassesService){
 		console.log('here it is'+ $stateParams.id);
 		$scope.classes = {};
-		
+		$scope.updatedClasses = {};
 		$scope.streams = {};
 		$scope.subjects = {};
 		$scope.domains ={};
@@ -49,9 +49,42 @@ angular.module('classupApp')
 
 		$scope.updateInfo = function(){
 			console.log($scope.classes);
-			ClassesService.updateInfo($scope.classes)
-			.then(function(classes){
-				$state.go(classes.viewProfile({classDetails:classes}));
+			makeUpdatedClassesObject($scope.classes)
+			.then(function(updatedClasses){
+				ClassesService.updateInfo(updatedClasses)
+				.then(function(classes){
+				$state.go('classes.viewProfile',{id:classes.id});
 			});
+			})
+			
 		};
+		function makeUpdatedClassesObject(classes){
+			var q= $q.defer();
+			var updatedClasses = {};
+			updatedClasses.id = classes.id;
+			updatedClasses.owner = classes.owner;
+			updatedClasses.name = classes.name; 
+			updatedClasses.tagline = classes.tagline
+			console.log(classes.courses);
+			if( classes.domains != null && classes.domains != undefined){
+				updatedClasses.domains = 	getIds(classes.domains);
+				console.log(updatedClasses.domains);
+			}
+			
+			if( classes.courses != null && classes.courses != undefined){
+				updatedClasses.courses = 	getIds(classes.courses);
+			}	
+			q.resolve(updatedClasses);
+			return q.promise;
+		};
+
+		function getIds(CObject){
+
+			var ids = [];
+			angular.forEach(CObject,function(value,key){
+				console.log(value._id);
+				ids.push(value._id);
+			})
+			return ids;
+		}
 	}]);

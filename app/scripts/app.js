@@ -82,7 +82,7 @@ var app=angular
       templateUrl: 'views/newClassHomepage.html',
       params: {
         id:null,
-        classDetails:null
+        name:null
       }
     })
     .state('classes.editClassProfile',{
