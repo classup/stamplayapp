@@ -6,6 +6,7 @@ angular.module('classupApp')
 		
 		$scope.streams = {};
 		$scope.subjects = {};
+		$scope.domains ={};
 		
 		//console.log(StreamService.getOtherStreams($stateParams.id));
 		ClassesService.getClassesDetails($stateParams.id)
@@ -26,6 +27,11 @@ angular.module('classupApp')
 			},function(error){
 				console.log('error in getting subjects: '+error);
 			});
+		StreamService.getDomains()
+			.then(function(domains){
+				$scope.domains = domains;
+				console.log($scope.domains);
+			});
 		$scope.addNewStream = function(){
 			StreamService.addStream($scope.stream)
 				.then(function(stream){
@@ -41,4 +47,11 @@ angular.module('classupApp')
 			$scope.classes.streams.push($scope.streamsOptions);
 		};
 
+		$scope.updateInfo = function(){
+			console.log($scope.classes);
+			ClassesService.updateInfo($scope.classes)
+			.then(function(classes){
+				$state.go(classes.viewProfile({classDetails:classes}));
+			});
+		};
 	}]);

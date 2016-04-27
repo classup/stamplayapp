@@ -47,6 +47,17 @@ angular.module("classupApp")
 
           });
           return q.promise;
+      },
+
+      getDomains : function(){
+        var q = $q.defer();
+         $stamplay.Object("groups").get({})
+          .then(function(domains){
+            q.resolve(domains);
+          },function(error){
+
+          });
+          return q.promise;
       }
   	}
   }]);

@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 /**
  * @ngdoc overview
@@ -81,7 +81,8 @@ var app=angular
       controller: 'classHomepageCtrl',
       templateUrl: 'views/newClassHomepage.html',
       params: {
-        id:null
+        id:null,
+        classDetails:null
       }
     })
     .state('classes.editClassProfile',{

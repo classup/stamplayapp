@@ -79,6 +79,20 @@ angular.module("classupApp")
                 q.reject(err);
             });
             return q.promise;
+        },
+
+        updateInfo : function(classes){
+            console.log(classes.owner+' === '+$rootScope.currentUser.id);
+            var q= $q.defer();
+            if(classes.owner=== $rootScope.currentUser.id){
+                Stamplay.Object("classes").patch(classes.id,classes)
+                .then(function(classes){
+                    q.resolve(classes);
+                },function(err){
+                    q.resolve(err);
+                });
+                q.promise;
+            }
         }
 }
   }])

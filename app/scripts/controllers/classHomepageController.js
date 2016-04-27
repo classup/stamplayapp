@@ -12,6 +12,10 @@ angular.module('classupApp')
   	function ($q,$scope,$rootScope,$state,ClassesService,$stateParams,StreamService) {
     	$scope.subjectList = {};
   		console.log($stateParams.id);
+      if($stateParams.classDetails != null){
+        renderClassDetails($stateParams.classDetails);
+      }
+      else{
     	ClassesService.getClassesDetails($stateParams.id)
     	.then(function(classDetails){
     		console.log(classDetails);
@@ -20,7 +24,7 @@ angular.module('classupApp')
     	},function(err){
     		console.log(err+ ' : in getting the class details');
     	});
-
+      }
     	function renderClassDetails(classDetails){
 
     		$scope.classDetails = classDetails;

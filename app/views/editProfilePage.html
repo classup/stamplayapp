@@ -1,7 +1,7 @@
 <div class="section light-gray-bg">
 				<div class="container">
 					
-					<form role="form">
+					<form role="form" ng-submit="updateInfo()">
 					<h2>Class Profile</h2>
 						<div class="row">
 							<div class="col-md-4">
@@ -30,11 +30,12 @@
 									
 									<select ng-model="classes.domains" multiple="" class="form-control">
 										
-										<option ng-repeat="domain in domains">{{domain.name}}</option>
+										<option ng-repeat="domain in domains.data" value="{{domain.id}}">{{domain.name}}</option>
 									
 									</select>
 
 									<button ng-click="addDomain()" class="btn btn-default">Add Domain</button>
+									<div>{{classes.domains}}</div>
 								</div>
 							</div>
 						</div>
@@ -44,9 +45,9 @@
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Add More Courses</label>
 									
-									<select ng-model="streamsOptions" multiple="" class="form-control">
+									<select ng-model="classes.streams" multiple="" class="form-control">
 										
-										<option ng-repeat="stream in streams.data">{{stream.name}}</option>
+										<option ng-repeat="stream in streams.data" value="{{stream.id}}">{{stream.name}}</option>
 									
 									</select>
 
@@ -57,9 +58,9 @@
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Your Courses</label>
 									
-									<select ng-model="classes.streams" multiple="" class="form-control">
+									<select multiple="" class="form-control">
 										
-										<option ng-repeat="stream in classes.streams track by $index">{{stream.name}}</option>
+										<option ng-repeat="stream in classes.streams track by $index" >{{stream.name}}</option>
 									
 									</select>
 
@@ -73,7 +74,7 @@
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Add More Subjects</label>
-									<select ng-model="classes.testimonial.title" multiple="" class="form-control">
+									<select ng-model="classes.subjects" multiple="" class="form-control">
 										
 										<option ng-repeat="subject in subjects.data">{{subject.name}}</option>
 									
@@ -84,9 +85,9 @@
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Your Subjects</label>
-									<select ng-model="classes.subjects" multiple="" class="form-control">
+									<select multiple="" class="form-control">
 										
-										<option ng-repeat="subject in classes.subjects">{{subject.name}}</option>
+										<option ng-repeat="subject in classes.subjects" value="{{subject.id}}">{{subject.name}}</option>
 									
 									</select>
 									<button ng-click="addSubjects()" class="btn btn-default">Add Subjects</button>
@@ -114,44 +115,11 @@
 							</div>
 							
 						</div>
-					</form>
-					<form role="form">
-						<div class="form-group">
-							<label for="disabledTextInput2">Disabled input</label>
-							<input type="text" id="disabledTextInput2" class="form-control" placeholder="Disabled input" disabled="">
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" value="">
-								Option one is this and that—be sure to include why it's great
-							</label>
-						</div>
-						<div class="checkbox disabled">
-							<label>
-								<input type="checkbox" value="" disabled="">
-								Option two is disabled
-							</label>
-						</div>
-						<br>
-						<div class="radio">
-							<label>
-								<input type="radio" name="optionsRadios" id="optionsRadios4" value="option1" checked="">
-								Option one is this and that—be sure to include why it's great
-							</label>
-						</div>
-						<div class="radio">
-							<label>
-								<input type="radio" name="optionsRadios" id="optionsRadios5" value="option2">
-								Option two can be something else and selecting it will deselect option one
-							</label>
-						</div>
-						<div class="radio disabled">
-							<label>
-								<input type="radio" name="optionsRadios" id="optionsRadios6" value="option3" disabled="">
-								Option three is disabled
-							</label>
-						</div>
+
+						<div class="row">
 						<button type="submit" class="btn btn-default">Submit</button>
+						</div>
 					</form>
+					
 				</div>
 			</div>
