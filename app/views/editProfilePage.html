@@ -28,7 +28,7 @@
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Select your domain</label>
 									
-									<select ng-model="classes.domains" multiple="" class="form-control" ng-options="domain.name for domain in domains.data">
+									<select ng-model="classes.domains" multiple="true" class="form-control" ng-options="domain.name for domain in domains.data">
 									</select>
 
 									<button ng-click="addDomain()" class="btn btn-default">Add Domain</button>
@@ -42,7 +42,7 @@
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Add More Courses</label>
 									
-									<select ng-model="classes.courses" multiple="" class="form-control" ng-options="stream.name for stream in streams.data">
+									<select ng-model="classes.courses" multiple="true" class="form-control" ng-options="stream.name for stream in streams.data">
 									
 									
 									</select>
@@ -51,18 +51,7 @@
 								</div>
 								<div>{{classes.courses}}</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group has-success has-feedback">
-									<label class="control-label">Your Courses</label>
-									
-									<select multiple="" class="form-control">
-										
-									
-									</select>
-
-									<button ng-click="addStreams()" class="btn btn-default">Add Courses</button>
-								</div>
-							</div>
+							
 							
 						</div>
 						<h2>Subjects</h2>
@@ -70,24 +59,14 @@
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Add More Subjects</label>
-									<select ng-model="classes.subjects.data" multiple="" class="form-control" ng-options="subject.name for subject in subjects.data">
+									<select ng-model="classes.subjects" multiple="true" class="form-control" ng-options="subject.name for subject in subjects.data">
 									
 									</select>
 									<button ng-click="addSubjects()" class="btn btn-default">Add Subjects</button>
 								</div>
 								<div>{{classes.subjects}}</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group has-success has-feedback">
-									<label class="control-label">Your Subjects</label>
-									<select multiple="" class="form-control">
-										
-										<option ng-repeat="subject in classes.subjects" value="{{subject.id}}">{{subject.name}}</option>
-									
-									</select>
-									<button ng-click="addSubjects()" class="btn btn-default">Add Subjects</button>
-								</div>
-							</div>
+							
 							
 						</div>
 						<h2>Testimonials</h2>

@@ -12,25 +12,33 @@ angular.module('classupApp')
 		ClassesService.getClassesDetails($stateParams.id)
 		.then(function(classes){
 			$scope.classes = classes;
+			console.log($scope.classes.courses);
 		});
 		StreamService.getStreams()
 			.then(function(streams){
 				$scope.streams = streams;
-				console.log($scope.streams.data[0]);
+				angular.forEach($scope.classes.courses,function(course,key){
+					angular.forEach($scope.streams.data,function(stream,streamKey){
+						if(course.id === stream.id){
+							$scope.classes.courses.splice(key,1,stream);
+						}
+					});
+				});
+				console.log($scope.classes.courses);
+				
 			},function(error){
 				console.log('error in getting streams: '+error);
 			});
 		SubjectService.getSubjects()
 			.then(function(subjects){
 				$scope.subjects = subjects;
-				console.log($scope.subjects.data[0]);
+				
 			},function(error){
 				console.log('error in getting subjects: '+error);
 			});
 		StreamService.getDomains()
 			.then(function(domains){
 				$scope.domains = domains;
-				console.log($scope.domains);
 			});
 		$scope.addNewStream = function(){
 			StreamService.addStream($scope.stream)
