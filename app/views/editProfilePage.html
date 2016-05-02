@@ -1,10 +1,32 @@
+
 <div class="section light-gray-bg">
 				<div class="container">
 					
 					<form role="form" ng-submit="updateInfo()">
-					<h2>Class Profile</h2>
 						<div class="row">
 							<div class="col-md-4">
+							<div flow-init="{target: '/upload'}"
+							     flow-files-submitted="$flow.upload()"
+							     flow-file-success="$file.msg = $message">
+
+							  <input type="file" ng-model="classes.banner" flow-btn/>
+
+							  <img ng-model="classes.banner" flow-img="$flow.files[0]" src="{{classes.banner}}" class="avatar" alt="avatar"/>
+							</div>
+								<div class="form-group has-success has-feedback">
+									<label class="control-label">Class Logo</label>
+									 <div class="kv-avatar center-block">
+									 <img src="/images/icons/kid.png" class="avatar img-circle" alt="avatar">
+								        <input id="avatar" name="avatar" type="file" class="file-loading">
+								    </div>
+									
+									 <div class="cropArea">
+									    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+									 </div>
+								</div>
+							</div>
+							<div class="col-md-4">
+							<h2>Class Profile</h2>
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Class Name</label>
 									<input type="text" ng-model="classes.name" class="form-control" id="name" required>
@@ -13,6 +35,8 @@
 							
 						</div>
 						<div class="row">
+						<div class="col-md-4"></div>
+
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Tagline</label>
@@ -22,56 +46,95 @@
 							</div>
 							
 						</div>
-						<h2>Domain</h2>
+						<hr>
 						<div class="row">
 							<div class="col-md-4">
+								
+							</div>
+							<div class="col-md-4">
+
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+
+						<div class="col-md-4"></div>
+							<div class="col-md-4">
+							<h2>Domain</h2>
+							<div
+							    isteven-multi-select
+							    input-model="domains.data"
+							    output-model="classes.domains"
+							    button-label="icon name"
+							    item-label="icon name maker"
+							    tick-property="ticked"
+							>
+							</div>
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Select your domain</label>
 									
-									<select ng-model="classes.domains" multiple="true" class="form-control" ng-options="domain.name for domain in domains.data">
-									</select>
+									<!-- <select ng-model="classes.domains" multiple="true" class="form-control" ng-options="domain.name for domain in domains.data">
+									</select> -->
 
-									<button ng-click="addDomain()" class="btn btn-default">Add Domain</button>
 									<div>{{classes.domains}}</div>
 								</div>
 							</div>
 						</div>
-						<h2>Courses</h2>
+						<hr>
 						<div class="row">
+
+						<div class="col-md-4"></div>
 							<div class="col-md-4">
+							<h2>Courses</h2>
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Add More Courses</label>
+									<div
+									    isteven-multi-select
+									    input-model="streams.data"
+									    output-model="classes.courses"
+									    button-label="icon name"
+									    item-label="icon name maker"
+									    tick-property="ticked"
+									>
+									</div>
 									
-									<select ng-model="classes.courses" multiple="true" class="form-control" ng-options="stream.name for stream in streams.data">
-									
-									
-									</select>
 
-									<button ng-click="addStream()" class="btn btn-default">Add Courses</button>
 								</div>
 								<div>{{classes.courses}}</div>
 							</div>
 							
 							
 						</div>
-						<h2>Subjects</h2>
+						<hr>
 						<div class="row">
+
+						<div class="col-md-4"></div>
 							<div class="col-md-4">
+							<h2>Subjects</h2>
+							<div
+							    isteven-multi-select
+							    input-model="subjects.data"
+							    output-model="classes.subjects"
+							    button-label="icon name"
+							    item-label="icon name"
+							    tick-property="ticked"
+							>
+							</div>
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Add More Subjects</label>
-									<select ng-model="classes.subjects" multiple="true" class="form-control" ng-options="subject.name for subject in subjects.data">
 									
-									</select>
-									<button ng-click="addSubjects()" class="btn btn-default">Add Subjects</button>
 								</div>
 								<div>{{classes.subjects}}</div>
 							</div>
 							
 							
 						</div>
-						<h2>Testimonials</h2>
+						<hr>
 						<div class="row">
+
+							<div class="col-md-4"></div>
 							<div class="col-md-4">
+								<h2>Testimonials</h2>
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Title</label>
 									<input type="text" ng-model="classes.testimonial.title" class="form-control" id="name">
@@ -80,6 +143,7 @@
 							
 						</div>
 						<div class="row">
+						<div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">What do they say</label>
@@ -89,8 +153,9 @@
 							</div>
 							
 						</div>
-
+						<hr>
 						<div class="row">
+						<div class="col-md-4"></div>
 						<button type="submit" class="btn btn-default">Submit</button>
 						</div>
 					</form>

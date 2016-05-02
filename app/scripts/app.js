@@ -18,7 +18,10 @@ var app=angular
     'ngSanitize',
     'ngTouch',
     'ui.router',
-    'ngStamplay'
+    'ngStamplay',
+    'ngImgCrop',
+    'isteven-multi-select',
+    'flow'
   ]);
 
   /*angular.module('classupApp').run(function($rootScope, User){

@@ -17,15 +17,32 @@ angular.module('classupApp')
 		StreamService.getStreams()
 			.then(function(streams){
 				$scope.streams = streams;
+				/*console.log($scope.streams);
+				_.each($scope.classes.courses,function(course){
+					_.each($scope.streams,function(stream){
+						console.log(stream);
+						if(course.id === stream.id){
+							_.extend(stream,{ticked = true});
+						}
+					})
+				})
+				console.log($scope.streams);
+
 				angular.forEach($scope.classes.courses,function(course,key){
+					console.log(course);
 					angular.forEach($scope.streams.data,function(stream,streamKey){
 						if(course.id === stream.id){
-							$scope.classes.courses.splice(key,1,stream);
+							console.log('ticked true');
+							stream.ticked = true;
+						}
+						else{
+							console.log('ticked false');
+							stream.ticked = false;
 						}
 					});
 				});
-				console.log($scope.classes.courses);
-				
+				console.log($scope.streams);
+				*/
 			},function(error){
 				console.log('error in getting streams: '+error);
 			});
@@ -55,8 +72,24 @@ angular.module('classupApp')
 			$scope.classes.streams.push($scope.streamsOptions);
 		};
 
-		$scope.updateInfo = function(){
+		$scope.updateInfo = function(e){
 			console.log($scope.classes);
+			var data = new FormData();
+			data.append("banner",$scope.classes.banner);
+
+			var xhr = new XMLHttpRequest();
+
+			  xhr.open('PUT', 'https://getclassup.stamplayapp.com/api/cobject/v1/classes', true);
+
+			  xhr.onload = function(e) {
+			    if(xhr.status >= 200 && xhr.status < 400) {
+			      console.log(JSON.parse(xhr.response));
+			    } else {
+			      console.error(xhr.status + " (" + xhr.statusText + ")" + ": " + xhr.responseText);
+			    }
+			  }
+
+			  xhr.send(data);
 			makeUpdatedClassesObject($scope.classes)
 			.then(function(updatedClasses){
 				ClassesService.updateInfo(updatedClasses)

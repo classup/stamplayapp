@@ -107,7 +107,7 @@
                     <li><a href="#">
                         <h3>{{teacher.name}}</h3></a></li>
                     <li><a href="#">
-                        <h5>Vocal teacher</h5></a></li>
+                        <h5>{{teacher.subect}}</h5></a></li>
                   </ul>
                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</p><a href="#" class="button button-simple min">Read More</a>
                 </div>
@@ -117,215 +117,70 @@
           </div>
         </div>
       </div>
-      <!-- Portfolio-->
-      <div class="portfolio-wrapper index-2">
-        <div class="container">
+      
+      <!-- streams-->
+      <div class="news-wrapper index-1" >
+        <div class="container" ng-if="classDetails.courses.length > 0">
           <!-- Section Name-->
-          <div class="section-name index-2">
-            <div class="sep"></div>
-            <h1>Our gallery</h1>
-            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
+          <div class="section-name index-1">
+            <h1>Our Courses</h1>
+             <div class="sep"></div>
           </div>
-          <!-- Gallery Filter-->
-          <ul class="portfolio-filter">
-            <li data-filter="*" class="active">All</li>
-            <li data-filter=".activities">Activities</li>
-            <li data-filter=".event">Event</li>
-            <li data-filter=".photos">Photos</li>
-            <li data-filter=".program">Program</li>
-            <li data-filter=".songs">Songs</li>
-            <li data-filter=".video">Video</li>
-          </ul>
-        </div>
-        <!-- Portfolio Main-->
-        <div class="portfolio-main">
-          <div class="container-fluid">
-            <!-- Gallery-->
-            <div class="gallery row">
-              <!-- Item 1-->
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item video songs activities">
-                <!-- Image-->
-                <div class="image"><img src="images/portfolio/img-10.jpg" alt="" class="img-responsive"/>
-                  <!-- Overlay-->
-                  <div class="overlay-1"></div>
-                  <div class="overlay-2"></div><a href="images/portfolio/img-12.jpg" class="nivoLightbox">Quick view</a>
-                </div>
-                <!-- Info Block-->
-                <div class="info-block">
-                  <h3>Children playing</h3>
-                  <h5>Activities</h5><a href="#"><i class="fa fa-chevron-circle-right"></i></a>
-                </div>
-              </div>
-              <!-- Item 2-->
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item activities event program video">
-                <!-- Image-->
-                <div class="image"><img src="images/portfolio/img-11.jpg" alt="" class="img-responsive"/>
-                  <!-- Overlay-->
-                  <div class="overlay-1"></div>
-                  <div class="overlay-2"></div><a href="images/portfolio/img-11.jpg" class="nivoLightbox">Quick view</a>
-                </div>
-                <!-- Info Block-->
-                <div class="info-block">
-                  <h3>Children playing</h3>
-                  <h5>Activities</h5><a href="#"><i class="fa fa-chevron-circle-right"></i></a>
-                </div>
-              </div>
-              <!-- Item 3-->
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item video photos event songs">
-                <!-- Image-->
-                <div class="image"><img src="images/portfolio/img-12.jpg" alt="" class="img-responsive"/>
-                  <!-- Overlay-->
-                  <div class="overlay-1"></div>
-                  <div class="overlay-2"></div><a href="images/portfolio/img-12.jpg" class="nivoLightbox">Quick view</a>
-                </div>
-                <!-- Info Block-->
-                <div class="info-block">
-                  <h3>Children playing</h3>
-                  <h5>Activities</h5><a href="#"><i class="fa fa-chevron-circle-right"></i></a>
-                </div>
-              </div>
-              <!-- Item 4-->
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item photos events program activities song video">
-                <!-- Image-->
-                <div class="image"><img src="images/portfolio/img-13.jpg" alt="" class="img-responsive"/>
-                  <!-- Overlay-->
-                  <div class="overlay-1"></div>
-                  <div class="overlay-2"></div><a href="images/portfolio/img-12.jpg" class="nivoLightbox">Quick view</a>
-                </div>
-                <!-- Info Block-->
-                <div class="info-block">
-                  <h3>Children playing</h3>
-                  <h5>Activities</h5><a href="#"><i class="fa fa-chevron-circle-right"></i></a>
-                </div>
-              </div>
-              <!-- Item 5-->
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item song video activitie event program photos">
-                <!-- Image-->
-                <div class="image"><img src="images/portfolio/img-14.jpg" alt="" class="img-responsive"/>
-                  <!-- Overlay-->
-                  <div class="overlay-1"></div>
-                  <div class="overlay-2"></div><a href="images/portfolio/img-12.jpg" class="nivoLightbox">Quick view</a>
-                </div>
-                <!-- Info Block-->
-                <div class="info-block">
-                  <h3>Children playing</h3>
-                  <h5>Activities</h5><a href="#"><i class="fa fa-chevron-circle-right"></i></a>
-                </div>
-              </div>
-              <!-- Item 6-->
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item songs video photo event">
-                <!-- Image-->
-                <div class="image"><img src="images/portfolio/img-15.jpg" alt="" class="img-responsive"/>
-                  <!-- Overlay-->
-                  <div class="overlay-1"></div>
-                  <div class="overlay-2"></div><a href="images/portfolio/img-12.jpg" class="nivoLightbox">Quick view</a>
-                </div>
-                <!-- Info Block-->
-                <div class="info-block">
-                  <h3>Children playing</h3>
-                  <h5>Activities</h5><a href="#"><i class="fa fa-chevron-circle-right"></i></a>
-                </div>
-              </div>
-              <!-- Item 7-->
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item video event activities photos program">
-                <!-- Image-->
-                <div class="image"><img src="images/portfolio/img-16.jpg" alt="" class="img-responsive"/>
-                  <!-- Overlay-->
-                  <div class="overlay-1"></div>
-                  <div class="overlay-2"></div><a href="images/portfolio/img-12.jpg" class="nivoLightbox">Quick view</a>
-                </div>
-                <!-- Info Block-->
-                <div class="info-block">
-                  <h3>Children playing</h3>
-                  <h5>Activities</h5><a href="#"><i class="fa fa-chevron-circle-right"></i></a>
-                </div>
-              </div>
-              <!-- Item 8-->
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item event song program">
-                <!-- Image-->
-                <div class="image"><img src="images/portfolio/img-17.jpg" alt="" class="img-responsive"/>
-                  <!-- Overlay-->
-                  <div class="overlay-1"></div>
-                  <div class="overlay-2"></div><a href="images/portfolio/img-12.jpg" class="nivoLightbox">Quick view</a>
-                </div>
-                <!-- Info Block-->
-                <div class="info-block">
-                  <h3>Children playing</h3>
-                  <h5>Activities</h5><a href="#"><i class="fa fa-chevron-circle-right"></i></a>
-                </div>
-              </div>
+          <!-- News Boxes-->
+          <div class="news-boxes row" ng-repeat="course in classDetails.courses">
+          
+            <!-- News Box 1-->
+            <div class="col-sm-6 col-md-3 isotope-item app-development">
+                  <div class="image-box style-2 mb-20 shadow bordered light-gray-bg text-center">
+                    <div class="overlay-container">
+                      <img src="images/portfolio-2.jpg" alt="">
+                      <div class="overlay-to-top">
+                        <p class="small margin-clear"><em>App development <br> Lorem ipsum dolor sit</em></p>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <h3>{{course.name}}</h3>
+                      <div class="separator"></div>
+                      <p>{{course.description}}</p>
+                      <a href="portfolio-item.html" class="btn btn-default btn-sm btn-hvr hvr-shutter-out-horizontal margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                    </div>
+                  </div>
             </div>
-            <!-- More Button-->
-            <div class="col-md-12">
-              <div class="btn-wrapper"><a href="#" class="button-portfolio">View all gallery</a></div>
-            </div>
+            
+            
           </div>
         </div>
-      </div>
-      <!-- News-->
-      <div class="news-wrapper index-2">
-        <div class="container">
+      
+
+      
+        <div class="container" ng-if="classDetails.subjects.length > 0">
           <!-- Section Name-->
-          <div class="section-name index-2">
-            <div class="sep"></div>
-            <h1>Our News</h1>
-            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
+          <div class="section-name index-1">
+            <h1>Our Subjects</h1>
+             <div class="sep"></div>
           </div>
-          <!-- News-->
-          <div class="news-outer">
-            <div class="row">
-              <div class="news-inner">
-                <!-- Thumbnail-->
-                <div class="col-news col-md-6 col-sm-6 col-xs-12">
-                  <div class="image"><img src="images/others/owl-image-1.jpg" alt="" class="img-responsive"/>
-                    <div class="mask index-2"><a href="#"><i class="fa fa-mail-forward"></i></a></div>
+          <!-- News Boxes-->
+          <div class="news-boxes row" ng-repeat="subject in classDetails.subjects">
+          
+            <!-- News Box 1-->
+            <div class="col-sm-6 col-md-3 isotope-item app-development">
+                  <div class="image-box style-2 mb-20 shadow bordered light-gray-bg text-center">
+                    <div class="overlay-container">
+                      <img src="images/portfolio-2.jpg" alt="">
+                      <div class="overlay-to-top">
+                        <p class="small margin-clear"><em>App development <br> Lorem ipsum dolor sit</em></p>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <h3>{{subject.name}}</h3>
+                      <div class="separator"></div>
+                      <p>{{subject.description}}</p>
+                      <a href="portfolio-item.html" class="btn btn-default btn-sm btn-hvr hvr-shutter-out-horizontal margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                    </div>
                   </div>
-                </div>
-                <!-- Info Block-->
-                <div class="col-news col-md-6 col-sm-6 col-xs-12">
-                  <div class="info-block"><a href="#">
-                      <h2>What should parents teach childrens?</h2></a>
-                    <ul class="meta">
-                      <li>
-                        <h5 class="date"><i class="fa fa-calendar"></i>                      August 29, 2015</h5>
-                      </li>
-                      <li>
-                        <h5 class="author"><i class="fa fa-pencil"></i>                      David Burlton</h5>
-                      </li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh smod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam</p><a href="#" class="button button-simple big">Read More</a>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-          <!-- News 2-->
-          <div class="news-outer">
-            <div class="row">
-              <div class="news-inner">
-                <!-- Thumbnail-->
-                <div class="col-news col-md-6 col-sm-6 col-xs-12">
-                  <div class="image"><img src="images/others/owl-image-2.jpg" alt="" class="img-responsive"/>
-                    <div class="mask index-2"><a href="#"><i class="fa fa-mail-forward"></i></a></div>
-                  </div>
-                </div>
-                <!-- Info Block-->
-                <div class="col-news col-md-6 col-sm-6 col-xs-12">
-                  <div class="info-block"><a href="#">
-                      <h2>Don't break promises with children</h2></a>
-                    <ul class="meta">
-                      <li>
-                        <h5 class="date"><i class="fa fa-calendar"></i>                      August 29, 2015</h5>
-                      </li>
-                      <li>
-                        <h5 class="author"><i class="fa fa-pencil"></i>                      Jhon Doe</h5>
-                      </li>
-                    </ul>
-                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril</p><a href="#" class="button button-simple big">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
+            
           </div>
         </div>
       </div>

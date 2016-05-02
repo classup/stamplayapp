@@ -5,7 +5,7 @@ angular.module("classupApp")
   	return{
   		addStream : function(stream) {
   			var q = $q.defer();
-            $stamplay.Object("streams").save(stream)
+            $stamplay.Object("courses").save(stream)
             .then(function(stream) {
                 console.log(stream.name+ " stream created");
                 q.resolve(stream);
@@ -15,7 +15,7 @@ angular.module("classupApp")
 
   		getStreams : function() {
   			var q = $q.defer();
-  			 $stamplay.Object("streams").get({})
+  			 $stamplay.Object("courses").get({})
   			 	.then(function(streams){
   			 		q.resolve(streams);
   			 	},function(error){
@@ -26,7 +26,7 @@ angular.module("classupApp")
 
   		getStream : function(streamId){
   			var q = $q.defer();
-  			 $stamplay.Object("streams").get({
+  			 $stamplay.Object("courses").get({
   			 	id : streamId
   			 })
   			 	.then(function(streams){
