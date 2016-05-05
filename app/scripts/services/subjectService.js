@@ -14,14 +14,14 @@ angular.module("classupApp")
   		},
 
   		getSubjects : function() {
-  			var q = $q.defer();
-  			 $stamplay.Object("subjects").get({})
-  			 	.then(function(subjects){
-  			 		q.resolve(subjects);
-  			 	},function(error){
+    			var q = $q.defer();
+    			 $stamplay.Object("subjects").get({})
+    			 	.then(function(subjects){
+    			 		q.resolve(subjects);
+    			 	},function(error){
 
-  			 	});
-  			 	return q.promise;
+    			 	});
+    			 	return q.promise;
   		},
 
   		getSubject : function(subjectId){

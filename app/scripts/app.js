@@ -127,6 +127,11 @@ var app=angular
       templateUrl: 'views/editContactPage.html'
 
     })
+    .state('yogicTales',{
+      url:'/yogic_tales',
+      controller:'yogicTalesController',
+      templateUrl: 'views/newClassHomepage.html'
+    })
   })
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
     Stamplay.init("getclassup");
