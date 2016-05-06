@@ -19,6 +19,10 @@ angular.module('classupApp')
         {
           name : 'Pooja Gala',
           exp : '2 years'
+        },
+        {
+          name : 'Pooja Gala',
+          exp : '2 years'
         }
         ],
         courses : [
@@ -28,7 +32,12 @@ angular.module('classupApp')
           }
         ],
         contact : '9029352272',
-        email : 'rusamgr8@gmail.com'
+        email : 'rusamgr8@gmail.com',
+        studentCallingName : 'Client',
+        teacherCallingName : 'Mentor',
+        studentCount : 25,
+        logo : "images/static/yogic_tales_logo.jpg",
+        bannerPic : "images/static/yogic-tales-banner.jpg"
       };
       renderClassDetails(classDetails);
     	function renderClassDetails(classDetails){

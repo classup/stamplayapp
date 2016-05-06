@@ -778,6 +778,10 @@ nav.navbar-2 .search-nav.big:hover {
 }
 /*===== 1.2 - Headers =====*/
 /* 1.2.1 - Header 1 */
+.banner {
+  width : auto;
+  height : 500px;
+}
 .jumbotron {
   padding: 0 0;
   margin: 0 0;
@@ -8211,4 +8215,20 @@ footer.footer-2 .footer h5.copyright a {
 .kv-avatar .file-input {
     display: table-cell;
     max-width: 220px;
+}
+
+.features-wrapper.indexn {
+   background: #ffffff;
+}
+@media screen and (max-width: 767px) {
+  .features-wrapper.indexn {
+    padding: 50px 0;
+  }
+}
+@media screen and (max-width: 479px) {
+  .features-wrapper.indexn .features {
+    display: block;
+    width: 100%;
+    float: none;
+  }
 }
