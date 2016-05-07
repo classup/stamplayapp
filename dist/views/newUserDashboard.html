@@ -1,0 +1,183 @@
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="features-wrapper index-2" style="border:1px solid #DEDEDE">
+        <div class="container">
+          <!-- Features Row-->
+          <div class="row">
+            <!-- Features Left-->
+            <div class="features left col-md-3 col-sm-6 col-xs-6">
+              <!-- Feature 1-->
+              <div class="feature top">
+                <div ng-click="show()" class="icon clearfix color-1"><img src="images/icons/atom-2-color.png" alt="" class="default"><img src="images/icons/atom-2.png" alt="" class="hover"></div>
+                <h2>Create Tutorial</h2>
+              </div>
+              <!-- Feature 2-->
+              <div class="feature bottom">
+                <div class="icon clearfix color-2"><img src="images/icons/light-bulb-2-color.png" alt="" class="default"><img src="images/icons/light-bulb-2.png" alt="" class="hover"></div>
+                <h2>Funny &amp; Happy</h2>
+              </div>
+            </div>
+            <!-- Thumbnail-->
+            <div class="thumb col-md-6"><img src="images/others/kids.png" alt="" class="img-responsive"></div>
+            <!-- Features Right-->
+            <div class="features right col-md-3 col-sm-6 col-xs-6">
+              <!-- Feature 1-->
+              <div class="feature top">
+                <div class="icon clearfix color-3"><img src="images/icons/compass-2-color.png" alt="" class="default"><img src="images/icons/compass-2.png" alt="" class="hover"></div>
+                <h2>Fully equipped</h2>
+              </div>
+              <!-- Feature 2-->
+              <div class="feature bottom">
+                <div class="icon clearfix color-4"><img src="images/icons/graduation-2-color.png" alt="" class="default"><img src="images/icons/graduation-2.png" alt="" class="hover"></div>
+                <h2>Teaching</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	</div>
+
+	<div class="row">
+  <div class="col-md-12 col-sm-12 news-wrapper index-1" style="padding:0px">
+    <div class="news-boxes">
+      <!-- News Box 1-->
+        <div class="col-md-10 col-sm-11 col-md-offset-1">
+            <div class="news-box-outer">
+                  <div class="news-box-inner">
+                    <div class="image col-md-6"><img src="images/news/news-1.jpg" alt="" class="img-responsive" style="height:200px;width:200px">
+                      <div class="mask index-1">
+                        <a href="#"></a>
+                      </div>
+                    </div>
+                    <div class="info-block col-md-6">
+                      <div class="row">
+
+                        <h3 class="col-md-6" style="padding-bottom:10px"> <div class="col-md-11 col-sm-11 col-xs-11">
+                                            <div class="section-name index-2">
+                                            <div class="sep"></div>
+                                            <h1>About Us</h1>
+                                          </div>
+                                        </div></h3>
+                        <a ui-sref="editProfile.aboutUs"><i class="fa fa-pencil col-md-offset-5 col-md-1" style="color:orange;cursor:pointer"></i></a>
+                      </div>
+                      <!-- <h5><i class="fa fa-calendar"></i>12, April 2015</h5> -->
+                      <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
+                             <a href="#" class="button button-special">Read More</a> -->
+                      <div ng-repeat="keys in userDetailsKeys">
+                        <div class="row" ng-repeat="info in userDetails[keys]">
+                          <div class="col-md-3" ng-bind="info.field"></div>
+                          <div class="col-md-5" ng-bind="info.value"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-1 col-sm-1">
+
+            </div>
+        </div>
+
+        <!--Box 2 -->
+        <div class="col-md-10 col-sm-11 col-md-offset-1" ng-if="teachersGallery.length > 0">
+            <div class="news-box-outer">
+                  <div class="news-box-inner">
+                    <div class="row">
+                                    <h3 class="col-md-12" style="padding-bottom:10px;font-family:'Roboto';font-weight:700px;text-align:center">
+                                        <div class="col-md-11 col-sm-11 col-xs-11">
+                                            <div class="section-name index-2">
+                                            <div class="sep"></div>
+                                            <h1>Our Teachers</h1>
+                                          </div>
+                                        </div>
+                                        <a ui-sref="editProfile.teachers"><i class="fa fa-pencil col-md-1 col-sm-1 col-xs-1" style="color:orange;cursor:pointer"></i></a></h3>
+                                    
+                                </div>
+                        <div class="portfolio-wrapper index-1" style="padding:0px">
+                            <div class="portfolio-main">
+                                
+                                <div class="gallery row" style="position: relative;">
+                                    <!-- Image 1-->
+                                    <div class="col-md-3 col-sm-4 col-xs-6 item photos event"  ng-repeat="teachers in teachersGallery">
+                                      <div class="image"><span style="background-image: url(images/portfolio/img-1.jpg);" class="image-img"></span>
+                                        <!-- Overlay-->
+                                        <div class="overlay">
+                                          <div class="overlay-inner">
+                                            <div class="details">
+                                              <h5>Event</h5>
+                                              <h6>Lorem ipsum dolor sit amet</h6>
+                                            </div><a href="images/portfolio/img-1.jpg" class="nivoLightbox"><i class="fa fa-search-plus"></i></a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+        <!-- Box 3 -Subject -->
+        <div class="col-md-10 col-sm-11 col-md-offset-1" ng-if="teachersGallery.length > 0">
+            <div class="news-box-outer">
+                  <div class="news-box-inner">
+                        <div class="timetable-wrapper" style="padding:0px">
+                           
+                              <!-- Section Name-->
+                              <div class="section-name index-2">
+                                <div class="sep"></div>
+                                <h1>Our Subjects</h1>
+                              </div>
+
+                              <!-- Timetable (Panels)-->
+                              <div class="time-table">
+                                <!-- Panel 1-->
+                                <div class="col-md-2 col-sm-4 panel time-cells" ng-class="subjectCss[$index]" ng-repeat="subjects in subjectListKeys">
+                                  <!-- Heading-->
+                                  <div class="panel-heading">
+                                    <h4 ng-bind="subjects"></h4>
+                                  </div>
+                                  <!-- Panel Body-->
+                                  <div class="panel-body">
+                                    <!-- Time cell 1-->
+
+                                    <div class="time-cell big" ng-repeat="object in subjectList[subjects]" style="padding-left:3%">
+                                      <div class="time-cell-head" style="text-align:center">
+                                        <h3>{{object.year}}<a ui-sref="editProfile.subjects"><i class="fa fa-pencil" style="color:orange;cursor:pointer;margin-left:10px"></i></a></h3>
+                                        <!-- <h5>9.00 am - 10.30 am</h5> -->
+                                      </div>
+                                      <div class="time-cell-body" style="padding:0px">
+                                       <!--  <h5>Instructor: R. Bandana</h5>
+                                        <h5>Room: 24</h5> -->
+                                        <!-- <h5>Level: Beginner</h5> -->
+                                        <div class="panel-heading" ng-bind="sub" ng-repeat="sub in object.subjects" style="border:2px solid #fff;line-height:47px;width:97%">
+                                            <h4 ng-bind="subjects"></h4>
+                                        </div>
+                                        
+                                      </div>
+                                      <div class="overlay"><a href="#"><i class="fa fa-chevron-circle-right"></i></a></div>
+                                    </div>
+                                    <!-- End -->
+                                  </div>
+                                </div>
+                                
+                              </div>
+                        
+      </div>
+                        
+                    </div>
+
+            </div>
+        </div>
+</div>
+
+	<div ui-view></div>
+</div>
+
