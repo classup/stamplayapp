@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css" />
     <!-- endbower -->
-    <!-- endbuild -->
+    
 
     <!--from the new template -->
     <!-- Bootstrap core CSS -->
@@ -55,8 +55,6 @@
         <link href="styles/kidzone.css" rel="stylesheet">
     <!--from the new template end-->
 
-
-    <!-- build:css(.tmp) styles/main.css -->
     <!-- Bootstrap Core CSS -->
     <!-- <link href="styles/bootstrap.min.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet"> 
@@ -78,8 +76,12 @@
     <!-- <div ng-include="'../includes/header-navbar-1.html'"></div> -->
     
         <!-- page-wrapper end -->
-         <script src="bower_components/angular/angular.js"></script>
-          <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -95,13 +97,16 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/ng-flow/dist/ng-flow-standalone.min.js"></script>
-    <script src="bower_components/underscore/underscore-min.js"></script>
-    <script src="bower_components/isteven-angular-multiselect/isteven-multi-select.js"></script>
+    <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+    <script src="bower_components/flow.js/dist/flow.js"></script>
+    <script src="bower_components/ng-flow/dist/ng-flow.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
         <!-- JavaScript files placed at the end of the document so the pages load faster -->
         <!-- ================================================== -->
         <!-- Jquery and Bootstap core js files -->
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script type="text/javascript" src="plugins/jquery.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <!-- Modernizr javascript -->
@@ -152,6 +157,6 @@
         <script src="scripts/services/subjectService.js"></script>
         <script src="scripts/services/account.service.js"></script>
     
-
+        <!-- endbuild -->
     </body>
 </html>
