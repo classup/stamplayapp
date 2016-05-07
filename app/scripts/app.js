@@ -20,7 +20,6 @@ var app=angular
     'ui.router',
     'ngStamplay',
     'ngImgCrop',
-    'isteven-multi-select',
     'flow'
   ]);
 
