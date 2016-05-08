@@ -467,12 +467,10 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'postcss',
     'ngtemplates',
-    'concat',
     'ngAnnotate',
     'copy:dist',
     'cdnify',
     'cssmin',
-    'uglify',
     'filerev',
     'usemin',
     'htmlmin'
