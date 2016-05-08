@@ -6,17 +6,19 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
+    <!-- build:css(<applet></applet>) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css" />
     <!-- endbower -->
-    
+    <!-- endbuild -->
 
     <!--from the new template -->
     <!-- Bootstrap core CSS -->
     <!-- Favicon -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+
         <link rel="shortcut icon" href="images/favicon.ico">
 
         <!-- Web Fonts -->
@@ -76,7 +78,7 @@
     <!-- <div ng-include="'../includes/header-navbar-1.html'"></div> -->
     
         <!-- page-wrapper end -->
-    <!-- build:js(.) scripts/vendor.js -->
+    <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
