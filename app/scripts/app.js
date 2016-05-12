@@ -51,6 +51,7 @@ var app=angular
     })
     .state('signup',{
       url: "/signup",
+      controller:"AccountController",
       templateUrl: "views/signup.html"
     })
     .state('login',{
@@ -131,10 +132,11 @@ var app=angular
       controller:'yogicTalesController',
       templateUrl: 'views/newClassHomepage.html'
     })
+
   })
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
-    Stamplay.init("getclassup");
-
+    //Stamplay.init("getclassup");
+    CB.CloudApp.init('nrzbkowpwcpq', '0828bc2b-111e-4051-9ab1-f1f64c5f4b13');
     AccountService.currentUser().then(function(res) {
         $rootScope.currentUser = res;
         $rootScope.role = res ? res.givenRole.name : false;

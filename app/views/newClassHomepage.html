@@ -58,78 +58,26 @@
       
 
       <!-- Features-->
-      <div class="features-wrapper index-2">
-        <div class="container">
+      
+        
           <!-- Features Row-->
           <div class="row">
 
             <!-- Features Left-->
-            <div class="features left col-md-3 col-sm-6 col-xs-6">
-              <!-- Feature 1-->
-              <div class="feature top">
-                <div class="icon clearfix color-1"><img src="images/icons/atom-2-color.png" alt="" class="default"/><img src="images/icons/atom-2.png" alt="" class="hover"/></div>
-                <h2>Teaching</h2>
-              </div>
-              <!-- Feature 2-->
-              <div class="feature bottom">
-                <div class="icon clearfix color-2"><img src="images/icons/light-bulb-2-color.png" alt="" class="default"/><img src="images/icons/light-bulb-2.png" alt="" class="hover"/></div>
-                <h2>Funny & Happy</h2>
-              </div>
-            </div>
+            
             <!-- Thumbnail-->
-            <div class="thumb col-md-6"><img src="images/static/yogic_tales_logo.jpg" alt="" class="img-responsive" style="background-position: center; height:100%; width:50%"/></div>
+            <div class="thumb col-md-6 logo"><img src="images/portfolio/img-1.jpg" alt="" class="img-responsive"/></div>
             <!-- Features Right-->
-            <div class="features right col-md-3 col-sm-6 col-xs-6">
-              <!-- Feature 1-->
-              <div class="feature top">
-                <div class="icon clearfix color-3"><img src="images/icons/compass-2-color.png" alt="" class="default"/><img src="images/icons/compass-2.png" alt="" class="hover"/></div>
-                <h2>Fully equipped</h2>
+            
               </div>
-              <!-- Feature 2-->
-              <div class="feature bottom">
-                <div class="icon clearfix color-4"><img src="images/icons/graduation-2-color.png" alt="" class="default"/><img src="images/icons/graduation-2.png" alt="" class="hover"/></div>
-                <h2>Teaching</h2>
-              </div>
-            </div>
-          </div>
+            
+         
         </div>
       </div>
       <!-- About Us-->
    
       <!-- Counters-->
-      <div class="counters-wrapper index-2">
-        <div class="container">
-          <!-- Countes Row-->
-          <div class="counters row">
-            <!-- Counter 2-->
-            <div class="col-md-3 col-md-3 col-sm-6 col-xs-12" ng-if="classDetails.teachers.length > 0">
-              <div class="counter-outer">
-                <!-- Counter Inner-->
-                <div class="counter-inner color-1"><span id="counting-1" class="counter">{{classDetails.teachers.length}}</span></div>
-                <h2 class="rounded-text">{{classDetails.teacherCallingName}}</h2>
-              </div>
-            </div>
-            <!-- Counter 2-->
-            
-            <!-- Counter 3-->
-            <div class="col-md-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="counter-outer">
-                <!-- Counter Inner-->
-                <div class="counter-inner color-3"><a href="#teachers"><span id="counting-3" class="counter">{{classDetails.studentCount}}</span></a></div>
-                <h2 class="rounded-text">{{classDetails.studentCallingName}}</h2>
-              </div>
-            </div>
-            <!-- Counter 4-->
-            <div class="col-md-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="counter-outer">
-                <!-- Counter Inner-->
-                <div class="counter-inner color-4"><span id="counting-4" class="counter">12</span></div>
-                <h2 class="rounded-text">Teaching hours</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <!-- Team-->
       <div id="teacher" class="team-wrapper index-2" ng-if="classDetails.teachers.length > 0">
         <div class="container">
@@ -147,13 +95,12 @@
                   <div class="mask index-2"><a href="#"><i class="fa fa-mail-forward"></i></a></div>
                 </div>
                 <div class="info-block">
-                  <ul class="meta">
-                    <li><a href="#">
-                        <h3>{{teacher.name}}</h3></a></li>
-                    <li><a href="#">
-                        <h5>{{teacher.subect}}</h5></a></li>
-                  </ul>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</p><a href="#" class="button button-simple min">Read More</a>
+                 
+                      <a href="#">
+                          <h3>{{teacher.name}}</h3>
+                      </a>
+                        <p><h4>Experience: {{teacher.exp}}</h4></p>
+                      
                 </div>
               </div>
             </div>
@@ -242,34 +189,41 @@
         </div>
       </div>
       <!-- Contact-->
-      <div class="contact-wrapper index-2">
+      <div class="contact-wrapper index-1">
         <div class="container">
           <!-- Section Name-->
-          <div class="section-name index-2">
-            <div class="sep"></div>
+          <div class="section-name index-1">
             <h1>Contact us</h1>
             <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
+            <div class="sep"></div>
           </div>
-          <!-- Contact Outer-->
-          <div class="contact-outer row">
-            <!-- Contact Ineer-->
-            <div class="contact-inner">
-              <!-- Adress-->
-              <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12 phone">
-                <h2>Adress</h2><img src="images/icons/map-marker-2.png" alt="" class="icon"/>
+          <!-- Contact Inside-->
+          <div class="contact-details row">
+            <!-- Adress-->
+            <div class="col-md-4 col-sm-6 col-xs-12 adress">
+              <div>
+                <h2>Adress</h2>
+                <div class="icon color-1"><img src="img/icons/map-marker-1.png" alt=""/></div>
                 <p>Kidzone Care Center<br/>85 Fentiman Ave</p>
               </div>
-              <!-- Phone-->
-              <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12 phone">
-                <h2>Phone</h2><img src="images/icons/phone-2.png" alt="" class="icon"/>
+            </div>
+            <!-- Phone-->
+            <div class="col-md-4 col-sm-6 col-xs-12 phone">
+              <div>
+                <h2>Phone</h2>
+                <div class="icon color-2"><img src="img/icons/phone-1.png" alt=""/></div>
                 <p><span>Phone:</span> 1-800-64-38<br/><span>Fax:</span> 1-800-64-39</p>
               </div>
-              <!-- Email-->
-              <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12 email">
-                <h2>E-mail</h2><img src="images/icons/paper-plane-2.png" alt="" class="icon"/>
+            </div>
+            <!-- Email-->
+            <div class="col-md-4 col-sm-6 col-xs-12 email">
+              <div>
+                <h2>E-mail</h2>
+                <div class="icon color-3"><img src="img/icons/paper-plane-1.png" alt=""/></div>
                 <p>office@kidzone.com<br/>kidzone@info.com</p>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
