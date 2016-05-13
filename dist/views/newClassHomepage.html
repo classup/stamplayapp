@@ -1,0 +1,316 @@
+ <div class="header">
+        <!-- Navigation-->
+        <nav class="navbar navbar-1">
+          <!-- Search Form-->
+
+          <div class="navigation container" >
+            <!-- Nav Bar Toggle/collapse and Logo-->
+            <div class="navbar-header">
+              <h1><div><a href="index.html">{{classDetails.name}}</a></div></h1>
+              <!-- Navigation Toggle-->
+              <button type="button" data-toggle="collapse" data-target=".myNavbar" class="navbar-toggle"><span class="src-only"></span><i class="fa fa-bars"></i></button>
+              <div class="search-nav min"><i class="fa fa-search"></i></div>
+            </div>
+            <!-- Collpsing Items and Navigation-->
+            <div class="myNavbar collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <!-- Item 1-->
+                <li class="menu-item"><a ui-sref="classes.editClassProfile">Update Info</a>
+                 
+                </li>
+                <!-- Item 2-->
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <nav class="navbar duplicate hidden navbar-1">
+          <!-- Search Form-->
+          <form method="get" action="#" class="search-form container">
+            <div>
+              <input type="search" name="search-field" placeholder="Type and hit enter..." class="text-search-field"/><i class="close-btn fa fa-close"></i>
+            </div>
+          </form>
+          <div class="navigation container">
+            <!-- Nav Bar Toggle/collapse and Logo-->
+            <div class="navbar-header">
+              <div class="navbar-brand"><a href="index.html"><img src="assets/img/logo.png" alt=""/></a></div>
+              <!-- Navigation Toggle-->
+              <button type="button" data-toggle="collapse" data-target="#myNavbar" class="navbar-toggle"><span class="src-only"></span><i class="fa fa-bars"></i></button>
+              <div class="search-nav min"><i class="fa fa-search"></i></div>
+            </div>
+            <!-- Collpsing Items and Navigation-->
+
+            
+          </div>
+        </nav>
+        </div>
+
+        <div class="features-wrapper indexn">
+        <div class="container">
+
+        <div class="banner">
+          <img src="images/static/yogic-tales-banner.caf5c886.jpg" style="background-position: center; height:100%; width:100%"></img>
+        </div>
+
+        </div>
+        </div>
+      
+
+      <!-- Features-->
+      <div class="features-wrapper index-2">
+        <div class="container">
+          <!-- Features Row-->
+          <div class="row">
+
+            <!-- Features Left-->
+            <div class="features left col-md-3 col-sm-6 col-xs-6">
+              <!-- Feature 1-->
+              <div class="feature top">
+                <div class="icon clearfix color-1"><img src="images/icons/atom-2-color.01b37ec8.png" alt="" class="default"/><img src="images/icons/atom-2.37d13aa7.png" alt="" class="hover"/></div>
+                <h2>Teaching</h2>
+              </div>
+              <!-- Feature 2-->
+              <div class="feature bottom">
+                <div class="icon clearfix color-2"><img src="images/icons/light-bulb-2-color.4b9df8da.png" alt="" class="default"/><img src="images/icons/light-bulb-2.5d3cea64.png" alt="" class="hover"/></div>
+                <h2>Funny & Happy</h2>
+              </div>
+            </div>
+            <!-- Thumbnail-->
+            <div class="thumb col-md-6"><img src="images/static/yogic_tales_logo.1086b084.jpg" alt="" class="img-responsive" style="background-position: center; height:100%; width:50%"/></div>
+            <!-- Features Right-->
+            <div class="features right col-md-3 col-sm-6 col-xs-6">
+              <!-- Feature 1-->
+              <div class="feature top">
+                <div class="icon clearfix color-3"><img src="images/icons/compass-2-color.706aa34a.png" alt="" class="default"/><img src="images/icons/compass-2.9a0f6778.png" alt="" class="hover"/></div>
+                <h2>Fully equipped</h2>
+              </div>
+              <!-- Feature 2-->
+              <div class="feature bottom">
+                <div class="icon clearfix color-4"><img src="images/icons/graduation-2-color.21a9017c.png" alt="" class="default"/><img src="images/icons/graduation-2.366fe57f.png" alt="" class="hover"/></div>
+                <h2>Teaching</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- About Us-->
+   
+      <!-- Counters-->
+      <div class="counters-wrapper index-2">
+        <div class="container">
+          <!-- Countes Row-->
+          <div class="counters row">
+            <!-- Counter 2-->
+            <div class="col-md-3 col-md-3 col-sm-6 col-xs-12" ng-if="classDetails.teachers.length > 0">
+              <div class="counter-outer">
+                <!-- Counter Inner-->
+                <div class="counter-inner color-1"><span id="counting-1" class="counter">{{classDetails.teachers.length}}</span></div>
+                <h2 class="rounded-text">{{classDetails.teacherCallingName}}</h2>
+              </div>
+            </div>
+            <!-- Counter 2-->
+            
+            <!-- Counter 3-->
+            <div class="col-md-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="counter-outer">
+                <!-- Counter Inner-->
+                <div class="counter-inner color-3"><a href="#teachers"><span id="counting-3" class="counter">{{classDetails.studentCount}}</span></a></div>
+                <h2 class="rounded-text">{{classDetails.studentCallingName}}</h2>
+              </div>
+            </div>
+            <!-- Counter 4-->
+            <div class="col-md-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="counter-outer">
+                <!-- Counter Inner-->
+                <div class="counter-inner color-4"><span id="counting-4" class="counter">12</span></div>
+                <h2 class="rounded-text">Teaching hours</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Team-->
+      <div id="teacher" class="team-wrapper index-2" ng-if="classDetails.teachers.length > 0">
+        <div class="container">
+          <!-- Section Name-->
+          <div class="section-name index-2">
+            <div class="sep" id="teachers"></div>
+            <h1>Our Teachers</h1>
+            
+          </div>
+          <div class="team-members" >
+            <!-- Team Member 1-->
+            <div class="col-team-member col-md-6 col-sm-12" ng-repeat="teacher in classDetails.teachers">
+              <div class="team-member">
+                <div class="image"><img src="images/teachers/teacher-5.d72707fd.jpg" alt="" class="img-responsive"/>
+                  <div class="mask index-2"><a href="#"><i class="fa fa-mail-forward"></i></a></div>
+                </div>
+                <div class="info-block">
+                  <ul class="meta">
+                    <li><a href="#">
+                        <h3>{{teacher.name}}</h3></a></li>
+                    <li><a href="#">
+                        <h5>{{teacher.subect}}</h5></a></li>
+                  </ul>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</p><a href="#" class="button button-simple min">Read More</a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <!-- streams-->
+      <div class="news-wrapper index-1" >
+        <div class="container" ng-if="classDetails.courses.length > 0">
+          <!-- Section Name-->
+          <div class="section-name index-1">
+            <h1>Our Courses</h1>
+             <div class="sep"></div>
+          </div>
+          <!-- News Boxes-->
+          <div class="news-boxes row" ng-repeat="course in classDetails.courses">
+          
+            <!-- News Box 1-->
+            <div class="col-sm-6 col-md-3 isotope-item app-development">
+                  <div class="image-box style-2 mb-20 shadow bordered light-gray-bg text-center">
+                    <div class="overlay-container">
+                      <img src="images/portfolio-2.cb45ecf5.jpg" alt="">
+                      <div class="overlay-to-top">
+                        <p class="small margin-clear"><em>App development <br> Lorem ipsum dolor sit</em></p>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <h3>{{course.name}}</h3>
+                      <div class="separator"></div>
+                      <p>{{course.description}}</p>
+                      <a href="portfolio-item.html" class="btn btn-default btn-sm btn-hvr hvr-shutter-out-horizontal margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                    </div>
+                  </div>
+            </div>
+            
+            
+          </div>
+        </div>
+      
+
+      
+        <div class="container" ng-if="classDetails.subjects.length > 0">
+          <!-- Section Name-->
+          <div class="section-name index-1">
+            <h1>Our Subjects</h1>
+             <div class="sep"></div>
+          </div>
+          <!-- News Boxes-->
+          <div class="news-boxes row" ng-repeat="subject in classDetails.subjects">
+          
+            <!-- News Box 1-->
+            <div class="col-sm-6 col-md-3 isotope-item app-development">
+                  <div class="image-box style-2 mb-20 shadow bordered light-gray-bg text-center">
+                    <div class="overlay-container">
+                      <img src="images/portfolio-2.cb45ecf5.jpg" alt="">
+                      <div class="overlay-to-top">
+                        <p class="small margin-clear"><em>App development <br> Lorem ipsum dolor sit</em></p>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <h3>{{subject.name}}</h3>
+                      <div class="separator"></div>
+                      <p>{{subject.description}}</p>
+                      <a href="portfolio-item.html" class="btn btn-default btn-sm btn-hvr hvr-shutter-out-horizontal margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                    </div>
+                  </div>
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!-- Video-->
+      <div class="video-wrapper index-2">
+        <!-- Background-->
+        <div class="container-fluid background"></div>
+        <!-- Video Container-->
+        <div class="container">
+          <div class="placeholder">
+          <iframe width="420" height="315"
+            src="http://www.youtube.com/embed/XGSy3_Czz8k">
+          </iframe>
+          
+        </div>
+      </div>
+      <!-- Contact-->
+      <div class="contact-wrapper index-2">
+        <div class="container">
+          <!-- Section Name-->
+          <div class="section-name index-2">
+            <div class="sep"></div>
+            <h1>Contact us</h1>
+            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
+          </div>
+          <!-- Contact Outer-->
+          <div class="contact-outer row">
+            <!-- Contact Ineer-->
+            <div class="contact-inner">
+              <!-- Adress-->
+              <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12 phone">
+                <h2>Adress</h2><img src="images/icons/map-marker-2.3ec0e0b6.png" alt="" class="icon"/>
+                <p>Kidzone Care Center<br/>85 Fentiman Ave</p>
+              </div>
+              <!-- Phone-->
+              <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12 phone">
+                <h2>Phone</h2><img src="images/icons/phone-2.daef3808.png" alt="" class="icon"/>
+                <p><span>Phone:</span> 1-800-64-38<br/><span>Fax:</span> 1-800-64-39</p>
+              </div>
+              <!-- Email-->
+              <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12 email">
+                <h2>E-mail</h2><img src="images/icons/paper-plane-2.268b3b3c.png" alt="" class="icon"/>
+                <p>office@kidzone.com<br/>kidzone@info.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Partners-->
+      <div class="partners-wrapper">
+        <div class="container">
+          <!-- Owl Carousel-->
+          <div id="owl-partners" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+            <!-- Item 1-->
+            <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 3040px; left: 0px; display: block; transition: all 1000ms ease; transform: translate3d(-380px, 0px, 0px);"><div class="owl-item" style="width: 190px;"><div class="item"><img src="images/icons/bear-cub-gray.04b227c6.png" alt="" class="default"><img src="images/icons/bear-cub-white.0fa60fbf.png" alt="" class="hover"></div></div><div class="owl-item" style="width: 190px;"><div class="item"><img src="images/icons/scholl-sign-gray.a502b96a.png" alt="" class="default"><img src="images/icons/scholl-sign-white.8d9f0b0f.png" alt="" class="hover"></div></div><div class="owl-item" style="width: 190px;"><div class="item"><img src="images/icons/kid-face-gray.png" alt="" class="default"><img src="images/icons/kid-face-white.c5f5091e.png" alt="" class="hover"></div></div><div class="owl-item" style="width: 190px;"><div class="item"><img src="images/icons/kids-gray.4e807f78.png" alt="" class="default"><img src="images/icons/kids-white.04052c15.png" alt="" class="hover"></div></div><div class="owl-item" style="width: 190px;">
+            <div class="item"><img src="images/icons/family-gray.22c77aa7.png" alt="" class="default"><img src="images/icons/family-white.18b57922.png" alt="" class="hover"></div>
+            </div>
+            <div class="owl-item" style="width: 190px;">
+            <div class="item"><img src="images/icons/home-gray.caecd822.png" alt="" class="default"><img src="images/icons/home-white.90ec1220.png" alt="" class="hover"></div>
+            </div>
+            <div class="owl-item" style="width: 190px;">
+            <div class="item"><img src="images/icons/kids-gray.4e807f78.png" alt="" class="default"><img src="images/icons/kids-white.04052c15.png" alt="" class="hover"></div></div>
+            <div class="owl-item" style="width: 190px;">
+            <div class="item"><img src="images/icons/scholl-sign-gray.a502b96a.png" alt="" class="default">
+              <img src="images/icons/scholl-sign-white.8d9f0b0f.png" alt="" class="hover">
+            </div>
+            </div>
+            </div>
+            </div>
+            <!-- item 2-->
+            
+            <!-- item 3-->
+            
+            <!-- item 4-->
+            
+            <!-- item 4-->
+            
+            <!-- item 5-->
+            
+            <!-- item 6-->
+            
+            <!-- item 7-->
+            
+          <div class="owl-controls clickable"><div class="owl-buttons"><div class="owl-prev"><i class="fa fa-angle-left"></i></div><div class="owl-next"><i class="fa fa-angle-right"></i></div></div></div></div>
+        </div>
+      </div>
+
+
+

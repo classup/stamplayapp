@@ -18,6 +18,12 @@ angular.module('classupApp')
         teachers:[
         {
           name : 'Pooja Gala',
+          exp : '2 years',
+          dp : ''
+          
+        },
+        {
+          name : 'Pooja Gala',
           exp : '2 years'
         }
         ],

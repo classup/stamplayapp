@@ -4,7 +4,8 @@ angular.module("classupApp")
   function($q,AccountService,$state, $window, $document, $scope, $rootScope, $stateParams) {
 
   $scope.login = function() {
-    AccountService.login()
+    console.log($scope.user);
+    AccountService.login($scope.user)
     .then(function(){
       $state.go('dashboard')
     },function()
@@ -16,6 +17,16 @@ angular.module("classupApp")
   $scope.logout = function() {
     AccountService.logout();
   }
+
+  $scope.signup = function(){
+
+      AccountService.signup($scope.user)
+    .then(function(){
+      $state.go('dashboard')
+    },function(){console.log("not a great choice")});
+
+      
+    };
 
 /*  // Toggle Header on scroll
   angular.element($window).bind("scroll", function() {
