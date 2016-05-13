@@ -8,7 +8,7 @@ angular.module("classupApp")
                     q.resolve(res);
                     console.log('login successful');
                 },function(err){
-                    q.resolve(false);
+                    q.reject(err);
                     console.log('error in login ' + err );
                 });
                 return q.promise;
@@ -29,7 +29,7 @@ angular.module("classupApp")
                         q.resolve(user);
                     })
                 } else {
-                    q.resolve(false);
+                    q.reject(false);
                 }
 
             })

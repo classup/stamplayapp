@@ -7,7 +7,10 @@ angular.module("classupApp")
     AccountService.login()
     .then(function(){
       $state.go('dashboard')
-    },function(){console.log("not a great choice")});
+    },function()
+    {
+      console.log("not a great choice")
+    });
   }
 
   $scope.logout = function() {

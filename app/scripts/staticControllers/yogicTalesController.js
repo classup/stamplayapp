@@ -19,10 +19,6 @@ angular.module('classupApp')
         {
           name : 'Pooja Gala',
           exp : '2 years'
-        },
-        {
-          name : 'Pooja Gala',
-          exp : '2 years'
         }
         ],
         courses : [
