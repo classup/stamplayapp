@@ -15,7 +15,12 @@ angular.module("classupApp")
   }
 
   $scope.logout = function() {
-    AccountService.logout();
+    AccountService.logout()
+    .then(function(){
+      $state.go('login')
+    },function(){
+      console.log("system not allowing you to leave");
+    });
   }
 
   $scope.signup = function(){

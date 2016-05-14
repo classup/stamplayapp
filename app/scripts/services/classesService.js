@@ -5,12 +5,22 @@ angular.module("classupApp")
     return {
       createClass : function(details) {
             var q = $q.defer();
-            $stamplay.Object("classes").save(details)
-            .then(function(classes) {
-                console.log(classes.name+ " class created");
-                q.resolve(classes);
-            },function(err){
-                console.log(err);
+            console.log(details);
+            var owner = new CB.CloudObject('User',details.owner);
+            var classes = new CB.CloudObject("classes");
+            classes.set("name",details.name);
+            classes.set("owner",owner);
+            classes.ACL = new CB.ACL();
+            classes.ACL.setUserWriteAccess(details.owner,true);
+            classes.save({
+                success : function(classes){
+                    q.resolve(classes);
+                    console.log('classes created');
+                },
+                error : function(err){
+                    q.reject(err);
+                    console.log(err);
+                }
             })
             return q.promise;
         },
@@ -52,47 +62,86 @@ angular.module("classupApp")
         getClassesDetails : function(id) {
 
             var q = $q.defer();
-
-            Stamplay.Object("classes").get({
-                "_id" : id,
-                populate : true
-            }).then(function(res) {
-                var classes = res.data[0];
-               q.resolve(classes);
-                
-
-            }, function(err) {
-                q.reject(err);
-            });
+            var classes = new CB.CloudQuery("classes",id);
+            classes.findOne({
+                success : function(classes){
+                    q.resolve(classes.document);
+                },
+                error : function(err){
+                    q.reject(err)
+                }
+            })
             return q.promise;
         },
 
         getAllClassesOfCurrentUser :function() {
             var q= $q.defer();
             console.log($rootScope.currentUser);
-            Stamplay.Object("classes").get({
-                "owner" : $rootScope.currentUser.id
-            }).then(function(res){
-                var classes = res.data;
-                q.resolve(classes);
-            },function(err){
-                q.reject(err);
-            });
+            var classesQ = new CB.CloudQuery("classes");
+            classesQ.get("owner",$rootScope.currentUser.id);
+            classesQ.find({
+                success : function(classes){
+                    q.resolve(classes);
+                    console.log(classes);
+                },
+                error : function(err){
+                    q.reject(err);
+                }
+            })
             return q.promise;
         },
 
         updateInfo : function(classes){
-            console.log(classes.owner+' === '+$rootScope.currentUser.id);
+            console.log(classes);
+            console.log(classes.owner.id+' === '+$rootScope.currentUser.id);
             var q= $q.defer();
-            if(classes.owner=== $rootScope.currentUser.id){
-                Stamplay.Object("classes").patch(classes.id,classes)
-                .then(function(classes){
-                    q.resolve(classes);
-                },function(err){
-                    q.reject(err);
-                });
-                return q.promise;
+            if(classes.owner.id=== $rootScope.currentUser.id){
+                var classesObj = new CB.CloudQuery("classes",classes.id);
+                classesObj.findOne({
+                    success : function(classesObj){
+                        console.log(classesObj);
+                        classesObj.set("name",classes.name);
+                        classesObj.set("tagline",classes.tagline);
+                        classesObj.set("owner",classes.owner);
+                        //add more fields here
+                        classesObj.save({
+                            success : function(classes){
+                                q.resolve(classes);
+                            },
+                            error : function(err){
+                                q.reject(err);
+                            }
+                        });
+                    },
+                    error : function(err){
+                        q.reject(err);
+                    }
+                })
+                
             }
+            else{
+                q.reject(false);
+            }
+
+                return q.promise;
+        },
+
+        getDomains : function(){
+            var q = $q.defer();
+            var domains = new CB.CloudQuery("domain");
+            domains.selectColumn(['id','name']);
+            domains.find({
+                success: function(domains){
+                    console.log(domains);
+                    console.log(domains[0].document.name);
+                    q.resolve(domains);
+                },
+                error: function(err){
+                    q.reject(err);
+                }
+            });
+            return q.promise;
+
         }
 }
   }])

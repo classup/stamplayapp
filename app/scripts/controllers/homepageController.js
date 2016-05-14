@@ -25,6 +25,7 @@ angular.module('classupApp')
       else{
 
         console.log($rootScope.currentUser+' still undefined');
+        
       }
     });
   }]);

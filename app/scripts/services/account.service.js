@@ -9,6 +9,7 @@ angular.module("classupApp")
             cbUser.set('password', user.password);
             cbUser.logIn({
             success: function(user) {
+                console.log(CB.CloudUser.current);
                 q.resolve(user);
                 console.log('login successful');
             },
@@ -30,6 +31,7 @@ angular.module("classupApp")
         signup : function(user){
             console.log(user);
             var q = $q.defer();
+            var roles = new CB.CloudRole("registered");
             var cbUser = new CB.CloudUser();
             cbUser.set('firstName', user.firstName);
             cbUser.set('lastName', user.lastName);
@@ -37,17 +39,41 @@ angular.module("classupApp")
             cbUser.set('password', user.password);
             cbUser.set('email', user.email);
             cbUser.set('phoneNumber', user.phoneNumber);
-            cbUser.set('roles','qe8vB38Y');
+            
             cbUser.signUp({
             success: function(user) {
-                q.resolve(user);
-                console.log('signUp successful');
+                console.log("user signed up successfully");
+                console.log(CB.CloudUser.current);
+                CB.CloudUser.current.addToRole(roles,{
+                    success: function(user) {
+                        console.log(user);
+                        q.resolve(user);
+                        console.log('role successful');
+                    },
+                    error: function(err) {
+                        console.log('error in role ' + err );
+                        q.reject(err);
+                    }
+                })
+                
             },
             error: function(err) {
                  q.reject(err);
                 console.log('error in signup ' + err );
             }
             });
+            return q.promise;
+        },
+        logout :function(){
+            var q = $q.defer();
+            CB.CloudUser.current.logOut({
+            success: function(user) {
+            q.resolve(user);
+            },
+            error: function(err) {
+            q.reject(err);
+            }
+        });
             return q.promise;
         },
        /* logout : function() {

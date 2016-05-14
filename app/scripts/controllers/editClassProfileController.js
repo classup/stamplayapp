@@ -12,7 +12,7 @@ angular.module('classupApp')
 		ClassesService.getClassesDetails($stateParams.id)
 		.then(function(classes){
 			$scope.classes = classes;
-			console.log($scope.classes.courses);
+			console.log($scope.classes);
 		});
 		StreamService.getStreams()
 			.then(function(streams){
@@ -53,7 +53,7 @@ angular.module('classupApp')
 			},function(error){
 				console.log('error in getting subjects: '+error);
 			});
-		StreamService.getDomains()
+		ClassesService.getDomains()
 			.then(function(domains){
 				$scope.domains = domains;
 			});
@@ -72,50 +72,36 @@ angular.module('classupApp')
 			$scope.classes.streams.push($scope.streamsOptions);
 		};
 
-		$scope.updateInfo = function(e){
-			console.log($scope.classes);
-			var data = new FormData();
-			data.append("banner",$scope.classes.banner);
-
-			var xhr = new XMLHttpRequest();
-
-			  xhr.open('PUT', 'https://getclassup.stamplayapp.com/api/cobject/v1/classes', true);
-
-			  xhr.onload = function(e) {
-			    if(xhr.status >= 200 && xhr.status < 400) {
-			      console.log(JSON.parse(xhr.response));
-			    } else {
-			      console.error(xhr.status + " (" + xhr.statusText + ")" + ": " + xhr.responseText);
-			    }
-			  }
-
-			  xhr.send(data);
-			makeUpdatedClassesObject($scope.classes)
+		$scope.updateInfo = function(){
+			
+			/*makeUpdatedClassesObject($scope.classes)
 			.then(function(updatedClasses){
+				console.log(updatedClasses);*/
 				ClassesService.updateInfo(updatedClasses)
 				.then(function(classes){
-				$state.go('classes.viewProfile',{id:classes.id});
-			});
-			})
+					$state.go('classes.viewProfile',{id:classes.id});
+				});
+			
 			
 		};
 		function makeUpdatedClassesObject(classes){
 			var q= $q.defer();
+			console.log(classes);
 			var updatedClasses = {};
-			updatedClasses.id = classes.id;
+			/*updatedClasses.id = classes.id;
 			updatedClasses.owner = classes.owner;
 			updatedClasses.name = classes.name; 
-			updatedClasses.tagline = classes.tagline
+			updatedClasses.tagline = classes.tagline*/
 			console.log(classes.courses);
 			if( classes.domains != null && classes.domains != undefined){
-				updatedClasses.domains = 	getIds(classes.domains);
-				console.log(updatedClasses.domains);
+				classes.domains = 	getIds(classes.domains);
+				console.log(classes.domains);
 			}
 			
 			if( classes.courses != null && classes.courses != undefined){
-				updatedClasses.courses = 	getIds(classes.courses);
+				classes.courses = 	getIds(classes.courses);
 			}	
-			q.resolve(updatedClasses);
+			q.resolve(classes);
 			return q.promise;
 		};
 

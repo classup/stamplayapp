@@ -20,7 +20,8 @@ var app=angular
     'ui.router',
     'ngStamplay',
     'ngImgCrop',
-    'flow'
+    'flow',
+    'isteven-multi-select'
   ]);
 
   /*angular.module('classupApp').run(function($rootScope, User){
