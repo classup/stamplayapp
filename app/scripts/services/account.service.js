@@ -5,11 +5,11 @@ angular.module("classupApp")
             var q = $q.defer();
             console.log(user.username);
             var cbUser = new CB.CloudUser();
-            cbUser.set('username', 'user.username');
-            cbUser.set('password', 'user.password');
+            cbUser.set('username', user.username);
+            cbUser.set('password', user.password);
             cbUser.logIn({
             success: function(user) {
-                q.resolve(res);
+                q.resolve(user);
                 console.log('login successful');
             },
             error: function(err) {
@@ -30,13 +30,17 @@ angular.module("classupApp")
         signup : function(user){
             console.log(user);
             var q = $q.defer();
-            var user = new CB.CloudUser();
-            user.set('username', 'user.username');
-            user.set('password', 'user.password');
-            user.set('email', 'user.email');
-            user.signUp({
+            var cbUser = new CB.CloudUser();
+            cbUser.set('firstName', user.firstName);
+            cbUser.set('lastName', user.lastName);
+            cbUser.set('username', user.username);
+            cbUser.set('password', user.password);
+            cbUser.set('email', user.email);
+            cbUser.set('phoneNumber', user.phoneNumber);
+            cbUser.set('roles','qe8vB38Y');
+            cbUser.signUp({
             success: function(user) {
-                q.resolve(res);
+                q.resolve(user);
                 console.log('signUp successful');
             },
             error: function(err) {

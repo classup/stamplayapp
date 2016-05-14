@@ -19,13 +19,13 @@ angular.module("classupApp")
   }
 
   $scope.signup = function(){
-
+      console.log('coming inside signup');
       AccountService.signup($scope.user)
     .then(function(){
       $state.go('dashboard')
-    },function(){console.log("not a great choice")});
-
-      
+    },function(){
+      console.log("not a great choice")
+    });  
     };
 
 /*  // Toggle Header on scroll

@@ -56,6 +56,7 @@ var app=angular
     })
     .state('login',{
       url: "/login",
+      controller:"AccountController",
       templateUrl: "views/login.html"
     })
     .state('dashboard', {
@@ -138,8 +139,8 @@ var app=angular
     //Stamplay.init("getclassup");
     CB.CloudApp.init('nrzbkowpwcpq', '0828bc2b-111e-4051-9ab1-f1f64c5f4b13');
     AccountService.currentUser().then(function(res) {
-        $rootScope.currentUser = res;
-        $rootScope.role = res ? res.givenRole.name : false;
+        $rootScope.currentUser = res;/*
+        $rootScope.role = res ? res.givenRole.name : false;*/
     },function(err){
       console.log('no currentUser');
     }
