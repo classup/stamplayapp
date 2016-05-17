@@ -55,6 +55,7 @@ angular.module('classupApp')
 			});
 		ClassesService.getDomains()
 			.then(function(domains){
+				console.log(domains);
 				$scope.domains = domains;
 			});
 		$scope.addNewStream = function(){

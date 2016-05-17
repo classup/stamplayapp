@@ -79,6 +79,7 @@ angular.module("classupApp")
             console.log($rootScope.currentUser);
             var classesQ = new CB.CloudQuery("classes");
             classesQ.get("owner",$rootScope.currentUser.id);
+            classesQ.selectColumn(['id','name']);
             classesQ.find({
                 success : function(classes){
                     q.resolve(classes);
