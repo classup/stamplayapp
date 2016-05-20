@@ -12,22 +12,32 @@ angular.module('classupApp')
   	function ($q,$scope,$rootScope,$state,ClassesService,$stateParams,StreamService) {
     	$scope.subjectList = {};
   		console.log($stateParams.id);
-   
+    
+       function isHeClassOwner(ownerId){
+        console.log($rootScope.currentUser.id + " == "+ ownerId);
+        if($rootScope.currentUser.id == ownerId){
+          return true;
+        }
+        else return false;
+      };
+
     	ClassesService.getClassesDetails($stateParams.id)
     	.then(function(classDetails){
     		console.log(classDetails);
+        var classOwner = isHeClassOwner(classDetails.owner.document._id);
     		renderClassDetails(classDetails);
-       
+        
+        console.log(classOwner);
     	},function(err){
     		console.log(err+ ' : in getting the class details');
     	});
-      
+     
     	function renderClassDetails(classDetails){
 
     		$scope.classDetails = classDetails;
         
         console.log($scope.classDetails);
-    	}
+    	};
 
 /*
       function makeSubjectStreamList(classDetails){
