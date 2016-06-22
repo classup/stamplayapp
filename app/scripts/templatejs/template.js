@@ -16,7 +16,6 @@
 		};
 
 		$(window).load(function() {
-			console.log('removing');
 			$("body").removeClass("no-trans");
 		});
 		// Enable Smooth Scroll only on Chrome and only on Win and Linux Systems

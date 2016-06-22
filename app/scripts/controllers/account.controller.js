@@ -6,20 +6,23 @@ angular.module("classupApp")
   $scope.login = function() {
     console.log($scope.user);
     AccountService.login($scope.user)
-    .then(function(){
+    .then(function(user){
+      $rootScope.currentUser = user;
       $state.go('dashboard')
-    },function()
+    },function(err)
     {
       console.log("not a great choice")
     });
   }
 
   $scope.logout = function() {
+    console.log("logging out");
     AccountService.logout()
-    .then(function(){
+    .then(function(user){
       $state.go('login')
-    },function(){
-      console.log("system not allowing you to leave");
+    },function(error){
+
+      console.log(error+" system not allowing you to leave");
     });
   }
 
