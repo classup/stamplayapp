@@ -3,11 +3,24 @@ angular.module("classupApp")
   ["$q", "$http", "$stamplay","$rootScope", 
   function($q, $http, $stamplay,  $rootScope) {
   	return {
-  		coursesWiseSearch : function(area){
+  		coursesWiseSearch : function(course){
   			var q = $q.defer();
-  			var cs = new CB.CloudSearch('classes');
-  			cs.searchQuery = new CB.SearchQuery();
-  			cs.searchQuery.searchOn('courses');
-  		}
+  			var cq = new CB.CloudQuery('class_courses');
+        console.log(cq);
+  		  cq.equalTo('classes._id','qGhX2C5I');	
+        cq.find({
+          success : function(classes){
+            console.log(classes);
+            q.resolve(classes);
+          },
+          error : function(err){
+            console.log(err);
+            q.reject(err);
+          }
+        });
+        return q.promise;
+  		},
+
+
   	}
   }]);

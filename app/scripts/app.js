@@ -134,6 +134,10 @@ var app=angular
       controller:'yogicTalesController',
       templateUrl: 'views/newClassHomepage.html'
     })
+    .state('search',{
+      url:'/search',
+      controller:'SearchController'
+    })
 
   })
   .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
