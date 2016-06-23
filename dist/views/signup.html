@@ -15,7 +15,7 @@
 
 <div class="form-block center-block p-30 light-gray-bg border-clear text-left">
 							<h2 class="title">Sign Up</h2>
-							<form class="form-horizontal" role="form" ng-submit="signup()" ng-controller="loginSignupController">
+							<form class="form-horizontal" role="form" ng-submit="signup()">
 								<div class="form-group has-feedback">
 									<label for="inputName" class="col-sm-3 control-label">First Name <span class="text-danger small">*</span></label>
 									<div class="col-sm-8">
@@ -48,6 +48,13 @@
 									<label for="inputPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
 									<div class="col-sm-8">
 										<input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password" required>
+										<i class="fa fa-lock form-control-feedback"></i>
+									</div>
+								</div>
+								<div class="form-group has-feedback">
+									<label for="inputPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
+									<div class="col-sm-8">
+										<input type="number" ng-model="user.phoneNumber" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
 										<i class="fa fa-lock form-control-feedback"></i>
 									</div>
 								</div>

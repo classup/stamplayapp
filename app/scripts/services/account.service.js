@@ -66,12 +66,15 @@ angular.module("classupApp")
         },
         logout :function(){
             var q = $q.defer();
-            CB.CloudUser.current.logOut({
+            var user = CB.CloudUser.current;
+            user.document = CB.CloudUser.current.document;
+            user.logOut({
             success: function(user) {
-            q.resolve(user);
+                console.log("logout");
+                q.resolve(user);
             },
             error: function(err) {
-            q.reject(err);
+                q.reject(err);
             }
         });
             return q.promise;
