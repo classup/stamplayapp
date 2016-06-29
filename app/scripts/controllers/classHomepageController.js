@@ -20,8 +20,20 @@ angular.module('classupApp')
         }
         else return false;
       };
-
-    	ClassesService.getClassesDetails($stateParams.id)
+      if($stateParams.name != null){
+        ClassesService.getClassesDetailsByName($stateParams.name)
+      .then(function(classDetails){
+        console.log(classDetails);
+        var classOwner = isHeClassOwner(classDetails.owner.document._id);
+        renderClassDetails(classDetails);
+        
+        console.log(classOwner);
+      },function(err){
+        console.log(err+ ' : in getting the class details');
+      });
+      }
+      else{
+    	ClassesService.getClassesDetailsById($stateParams.id)
     	.then(function(classDetails){
     		console.log(classDetails);
         var classOwner = isHeClassOwner(classDetails.owner.document._id);
@@ -31,7 +43,7 @@ angular.module('classupApp')
     	},function(err){
     		console.log(err+ ' : in getting the class details');
     	});
-     
+      }
     	function renderClassDetails(classDetails){
 
     		$scope.classDetails = classDetails;

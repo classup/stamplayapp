@@ -59,7 +59,7 @@ angular.module("classupApp")
 
             return q.promise;
         },
-        getClassesDetails : function(id) {
+        getClassesDetailsById : function(id) {
 
             var q = $q.defer();
             var classes = new CB.CloudQuery("classes",id);
@@ -68,12 +68,26 @@ angular.module("classupApp")
                     q.resolve(classes.document);
                 },
                 error : function(err){
-                    q.reject(err)
+                    q.reject(err);
                 }
             })
             return q.promise;
         },
+        getClassesDetailsByName : function(name) {
 
+            var q = $q.defer();
+            var classes = new CB.CloudQuery("classes");
+            classes.equalTo("name",name);
+            classes.findOne({
+                success : function(classes){
+                    q.resolve(classes.document);
+                },
+                error : function(err){
+                    q.reject(err);
+                }
+            })
+            return q.promise;
+        },
         getAllClassesOfCurrentUser :function() {
             var q= $q.defer();
             console.log($rootScope.currentUser);

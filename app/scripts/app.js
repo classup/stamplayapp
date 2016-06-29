@@ -83,7 +83,7 @@ var app=angular
       
     })
     .state('classes',{
-      url:"/classes/:id",
+      url:"/classes/:name",
       abstract:true,
       templateUrl:'views/classHeader.html'
     })
