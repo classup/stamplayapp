@@ -199,6 +199,12 @@
             <a data-toggle="modal" data-target="#myModal" class="btn btn-lg btn-gray-transparent btn-animated">Create New Class<i class="fa fa-arrow-right pl-20"></i>
             </a>
             </p>
+            <div ng-controller="AccountController">
+            <p>
+            <a ng-click="logout()" class="btn btn-lg btn-gray-transparent btn-animated">Logout<i class="fa fa-arrow-right pl-20"></i>
+            </a>
+            </p>
+            </div>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -229,7 +235,7 @@
                   <div class="separator-2"></div>
                   <nav>
                     <ul class="nav nav-pills nav-stacked" ng-repeat="class in classes">
-                      <li><a ui-sref="classes.viewProfile({id:class.id,name:class.name})">{{class.name}}</a></li>
+                      <li><a ui-sref="classes.viewProfile({id:class.id,name:class.name})">{{class.document.name}}</a></li>
                     </ul>
                   </nav>
                 </div>
