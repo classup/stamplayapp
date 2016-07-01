@@ -16,6 +16,7 @@
 		};
 
 		$(window).load(function() {
+
 			$("body").removeClass("no-trans");
 		});
 		// Enable Smooth Scroll only on Chrome and only on Win and Linux Systems
@@ -23,7 +24,6 @@
 		if ((platform.indexOf('win') == 0 || platform.indexOf('linux') == 0) && !Modernizr.touch) {
 			if ($.browser.webkit) {
 				$.webkitSmoothScroll();
-				console.log("hello webkit");
 			}
 		};
 		//Show dropdown on hover only for desktop devices

@@ -83,7 +83,7 @@ var app=angular
       
     })
     .state('classes',{
-      url:"/classes/:id",
+      url:"/classes/:name",
       abstract:true,
       templateUrl:'views/classHeader.html'
     })
@@ -121,6 +121,10 @@ var app=angular
       url:'/yogic_tales',
       controller:'yogicTalesController',
       templateUrl: 'views/newClassHomepage.html'
+    })
+    .state('search',{
+      url:'/search',
+      controller:'SearchController'
     })
 
   })

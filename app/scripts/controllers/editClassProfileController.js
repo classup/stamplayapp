@@ -1,7 +1,7 @@
 angular.module('classupApp')
 	.controller('editClassProfileCtrl',['$q','$scope','$state','$stateParams','StreamService','SubjectService','ClassesService',
 		function($q,$scope,$state,$stateParams,StreamService,SubjectService,ClassesService){
-		console.log('here it is'+ $stateParams.id);
+		console.log('here it is'+ $stateParams.classDetails);
 		$scope.classes = {};
 		$scope.updatedClasses = {};
 		$scope.streams = {};
@@ -9,11 +9,17 @@ angular.module('classupApp')
 		$scope.domains ={};
 		
 		//console.log(StreamService.getOtherStreams($stateParams.id));
-		ClassesService.getClassesDetails($stateParams.id)
-		.then(function(classes){
+		if($stateParams.classDetails != null){
+			$scope.classes= $stateParams.classDetails;
+		}
+		else{
+			ClassesService.getClassesDetailsById($stateParams.id)
+			.then(function(classes){
 			$scope.classes = classes;
 			console.log($scope.classes);
-		});
+			});
+		}
+		
 		StreamService.getStreams()
 			.then(function(streams){
 				$scope.streams = streams;
