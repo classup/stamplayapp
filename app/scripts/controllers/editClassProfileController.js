@@ -62,8 +62,26 @@ angular.module('classupApp')
 		ClassesService.getDomains()
 			.then(function(domains){
 				console.log(domains);
-				$scope.domains = domains;
+				makeDomainsListForDropdown(domains);
 			});
+
+		var makeDomainsListForDropdown = function(domains){
+			var domainsList = [];
+			_.each(domains,function(domain){
+				
+				domainsList.push(domain.document);
+			})
+			console.log(domainsList);
+			$scope.domains = domainsList;
+		};
+
+		var makeCoursesListForDropdown = function(courses){
+			var coursesList = [];
+			_.each(courses,function(course){
+				coursesList.push(course.document);
+			})
+			$scope.courses = coursesList;
+		};
 		$scope.addNewStream = function(){
 			StreamService.addStream($scope.stream)
 				.then(function(stream){
@@ -84,7 +102,7 @@ angular.module('classupApp')
 			/*makeUpdatedClassesObject($scope.classes)
 			.then(function(updatedClasses){
 				console.log(updatedClasses);*/
-				ClassesService.updateInfo(updatedClasses)
+				ClassesService.updateInfo($scope.classes)
 				.then(function(classes){
 					$state.go('classes.viewProfile',{id:classes.id});
 				});
