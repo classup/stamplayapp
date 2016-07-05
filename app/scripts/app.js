@@ -128,7 +128,7 @@ var app=angular
     })
 
   })
-  .run(["$rootScope", "AccountService", function($rootScope, AccountService) {
+  .run(["$rootScope", "AccountService","$location", function($rootScope, AccountService,$location) {
     //Stamplay.init("getclassup");
     CB.CloudApp.init('nrzbkowpwcpq', '0828bc2b-111e-4051-9ab1-f1f64c5f4b13');
     AccountService.currentUser().then(function(res) {
@@ -138,8 +138,31 @@ var app=angular
       console.log('no currentUser');
     }
     );
+
+    // enumerate routes that don't need authentication
+  var routesThatDontRequireAuth = ['/login'];
+
+  // check if current location matches route  
+  var routeClean = function (route) {
+    return _.find(routesThatDontRequireAuth,
+      function (noAuthRoute) {
+        return _.startsWith(route, noAuthRoute);
+      });
+  };
+
+  $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
+    // if route requires auth and user is not logged in
+    console.log($location.url());
+    if (!routeClean($location.url()) && !AccountService.isLoggedIn()) {
+      // redirect back to login
+      $location.path('/login');
+    }
+  });
     
-}])
+}]);
+
+
+
 
 
           

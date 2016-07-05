@@ -119,6 +119,20 @@ angular.module("classupApp")
 
             })
             return q.promise;*/
+        },
+
+        isLoggedIn : function(){
+            var q = $q.defer();
+
+            var currentUser = CB.CloudUser.current;
+            if(currentUser != null){
+                q.resolve(true);
+                
+            }
+            else{
+                q.reject(false);
+            }
+            return q.promise;
         }
     }
 }])
