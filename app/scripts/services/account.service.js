@@ -1,5 +1,5 @@
 angular.module("classupApp")
-.factory("AccountService", ["$q", "$http", "$stamplay", function($q, $http, $stamplay) {
+.factory("AccountService", ["$q", "$http",  function($q, $http) {
     return {
         login : function(user) {
             var q = $q.defer();
@@ -122,17 +122,16 @@ angular.module("classupApp")
         },
 
         isLoggedIn : function(){
-            var q = $q.defer();
+            
 
             var currentUser = CB.CloudUser.current;
             if(currentUser != null){
-                q.resolve(true);
+                return true;
                 
             }
             else{
-                q.reject(false);
+                return false;
             }
-            return q.promise;
         }
     }
 }])
