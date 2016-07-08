@@ -10,17 +10,11 @@ angular.module('classupApp')
             var currentUser = CB.CloudUser.current;
             if(currentUser != null){
               console.log(currentUser.get('roles'));
-              var roles = currentUser.get('roles');
-             /* _.each(roles,function(role){
-                var roleObj = new CB.CloudQuery('Role');
-                roleObj.equalTo('id',role.document._id);
-                roleObj.find({
-                  success: function(role){
-                    console.log(role);
-                  }
-                }) 
-              })*/
-              q.resolve(currentUser.get('roles'));
+              var rolesArray = currentUser.get('roles');
+              var roles= [];
+              currentUser.fetch();
+              console.log(roles);
+              q.resolve(roles);
                 
             }
             else{
