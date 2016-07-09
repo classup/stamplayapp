@@ -15,6 +15,14 @@ angular.module('classupApp').factory('UserService',['AccountService','$rootScope
     console.log(err+" :no roles");
   });
   console.log(rolesName);
+
+  /*var adminRolesObject = new CB.CloudQuery('Roles');
+  adminRolesObject.containedIn('name',['admin','classadmin']);
+  adminRolesObject.find({
+    success : function(roles){
+      console.log(roles);
+    }
+  })*/
   return {
   
    

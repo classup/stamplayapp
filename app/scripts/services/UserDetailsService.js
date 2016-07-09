@@ -12,7 +12,6 @@ angular.module('classupApp')
               console.log(currentUser.get('roles'));
               var rolesArray = currentUser.get('roles');
               var roles= [];
-              currentUser.fetch();
               console.log(roles);
               q.resolve(roles);
                 

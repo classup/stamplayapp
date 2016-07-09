@@ -112,6 +112,15 @@ var app=angular
       templateUrl: 'views/editProfilePage.html'
 
     })
+    .state('classes.addReview',{
+      url:"/addReview",
+      parent:'classes',
+      controller:'ReviewController',
+      templateUrl:'views/addReview.html',
+      params:{
+        classId:null
+      }
+    })
     .state('searchCourseWise',{
       url:"/course/:course",
       controller:'SearchController',
