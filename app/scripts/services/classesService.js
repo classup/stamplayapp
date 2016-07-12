@@ -157,6 +157,11 @@ angular.module("classupApp")
             });
             return q.promise;
 
+        },
+
+        updateOverallRating : function(classId, overall_rating){
+            var q = $q.defer();
+            var classes = new CB.CloudQuery()
         }
 
 
