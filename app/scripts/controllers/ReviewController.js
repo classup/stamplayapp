@@ -8,13 +8,25 @@ var review={
 	"rating":3
 
 };
-		console.log($stateParams.classId);
+var classId = $stateParams.classId;
+		console.log(classId);
 			$scope.addReview = function(){
-				ReviewService.addReview($stateParams.classId,review)
+				ReviewService.addReview(classId,review)
 				.then(function(review){
 					console.log(review);
 				},function(error){
 
+				});
+			};
+
+			var calculateRating = function(classId){
+				var sumOfRating = 0;
+				ReviewService.getRatingForClasses(classId)
+				.then(function(classRatingList){
+					_.each(classRatingList,function(classRating){
+						console.log(classRating);
+						sumOfRating += classRating.rating;
+					});
 				});
 			}
 		}])

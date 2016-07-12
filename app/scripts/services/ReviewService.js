@@ -40,7 +40,24 @@ angular.module("classupApp")
     			}
     		});
     		return q.promise;
-    	}
+    	},
+
+    	getRatingForClasses : function(classId){
+            var q = $q.defer();
+            
+            var classes = new CB.CloudQuery("reviews");
+            classes.equalTo("classId",classId);
+            classes.greaterThan("rating",0);
+            classes.selectColumns([rating]);
+            classes.find({
+            	success : function(classRating){
+            		q.resolve(classRating);
+            	},
+            	error : function(error){
+            		q.reject(error);
+            	}
+            });
+        }
     }
 }
 ])

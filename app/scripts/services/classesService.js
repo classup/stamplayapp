@@ -158,5 +158,7 @@ angular.module("classupApp")
             return q.promise;
 
         }
+
+
 }
   }])
