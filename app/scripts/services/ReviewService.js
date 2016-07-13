@@ -6,12 +6,17 @@ angular.module("classupApp")
     	addReview(classId,review){
     		var q = $q.defer();
     		console.log(classId);
+    		var classes = {};
+    		var classesObj = new CB.CloudObject('classes',classId);
+    		
     		var reviewObj = new CB.CloudObject('reviews');
     		reviewObj.set("title",review.title);
     		reviewObj.set("description",review.description);
     		reviewObj.set("rating",review.rating);
     		reviewObj.set("userId",$rootScope.currentUser);
+    		//reviewObj.set("classId",classes);
     		reviewObj.relate('classId','classes',classId);
+    		console.log(reviewObj);
     		reviewObj.save({
     			success : function(review){
 
@@ -32,6 +37,7 @@ angular.module("classupApp")
     						console.log("classes not found: "+error);
     					}
     				});*/
+
     				q.resolve(review);
     			},
     			error : function(error){
@@ -44,19 +50,22 @@ angular.module("classupApp")
 
     	getRatingForClasses : function(classId){
             var q = $q.defer();
-            
-            var classes = new CB.CloudQuery("reviews");
-            classes.equalTo("classId",classId);
-            classes.greaterThan("rating",0);
-            classes.selectColumns([rating]);
-            classes.find({
+            console.log(classId);
+            var reviews = new CB.CloudQuery("reviews");
+            reviews.include('classId');
+            reviews.equalTo('classId',classId);
+            reviews.greaterThan("rating",0);
+            reviews.selectColumn(['rating']);
+            reviews.find({
             	success : function(classRating){
+            		console.log(classRating);
             		q.resolve(classRating);
             	},
             	error : function(error){
             		q.reject(error);
             	}
             });
+            return q.promise;
         }
     }
 }

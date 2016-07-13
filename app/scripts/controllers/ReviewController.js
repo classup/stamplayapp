@@ -15,7 +15,10 @@ var classId = $stateParams.classId;
 				.then(function(review){
 					console.log(review);
 					var overall_rating = calculateOverallRating(classId);
-					ClassesService.updateOverallRating(classId,overall_rating);
+					ClassesService.updateOverallRating(classId,overall_rating)
+					.then(function(classes){
+						$state.go('classes.viewProfile',{id:classes.id});
+					})
 				},function(error){
 					console.log(error);
 				});
@@ -24,18 +27,21 @@ var classId = $stateParams.classId;
 			var calculateOverallRating = function(classId){
 				var sumOfRating = 0;
 				var overall_rating = 0;
+				var size = 0;
 				ReviewService.getRatingForClasses(classId)
 				.then(function(classRatingList){
+					size = classRatingList.length;
+					console.log('size: '+size+"  , \n"+classRatingList);
 					_.each(classRatingList,function(classRating){
 						console.log(classRating);
 						sumOfRating += classRating.rating;
 					});
 				});
-				if(classRatingList.size > 0){
-					overall_rating = sumOfRating/classRatingList.size;	
+				if(size > 0){
+					overall_rating = sumOfRating/size;	
 				}
 				
-
+				console.log(overall_rating);
 				return overall_rating;
 			}
 		}])
