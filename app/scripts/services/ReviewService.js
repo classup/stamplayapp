@@ -52,10 +52,10 @@ angular.module("classupApp")
             var q = $q.defer();
             console.log(classId);
             var reviews = new CB.CloudQuery("reviews");
-            reviews.include('classId');
-            reviews.equalTo('classId',classId);
+            console.log(reviews);
+            
+            reviews.get('classId',classId);
             reviews.greaterThan("rating",0);
-            reviews.selectColumn(['rating']);
             reviews.find({
             	success : function(classRating){
             		console.log(classRating);

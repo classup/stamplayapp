@@ -161,6 +161,7 @@ angular.module("classupApp")
 
         updateOverallRating : function(classId, overall_rating){
             var q = $q.defer();
+            console.log(overall_rating);
             var classes = new CB.CloudQuery("classes");
             classes.equalTo('id',classId);
             classes.findOne({

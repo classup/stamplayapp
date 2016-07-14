@@ -14,11 +14,9 @@ var classId = $stateParams.classId;
 				ReviewService.addReview(classId,review)
 				.then(function(review){
 					console.log(review);
-					var overall_rating = calculateOverallRating(classId);
-					ClassesService.updateOverallRating(classId,overall_rating)
-					.then(function(classes){
-						$state.go('classes.viewProfile',{id:classes.id});
-					})
+					calculateOverallRating(classId);
+					
+					
 				},function(error){
 					console.log(error);
 				});
@@ -26,7 +24,7 @@ var classId = $stateParams.classId;
 
 			var calculateOverallRating = function(classId){
 				var sumOfRating = 0;
-				var overall_rating = 0;
+				$scope.overall_rating = 0;
 				var size = 0;
 				ReviewService.getRatingForClasses(classId)
 				.then(function(classRatingList){
@@ -34,14 +32,19 @@ var classId = $stateParams.classId;
 					console.log('size: '+size+"  , \n"+classRatingList);
 					_.each(classRatingList,function(classRating){
 						console.log(classRating);
-						sumOfRating += classRating.rating;
+						sumOfRating += classRating.document.rating;
 					});
-				});
-				if(size > 0){
-					overall_rating = sumOfRating/size;	
-				}
+					console.log(sumOfRating);
+					if(size > 0){
+						$scope.overall_rating = sumOfRating/size;	
+					}
 				
-				console.log(overall_rating);
-				return overall_rating;
-			}
+					console.log($scope.overall_rating);
+					ClassesService.updateOverallRating(classId,$scope.overall_rating)
+					.then(function(classes){
+						$state.go('classes.viewProfile',{id:classes.id});
+					})
+			
+				});
+				}
 		}])
