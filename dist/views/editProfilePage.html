@@ -16,7 +16,7 @@
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Class Logo</label>
 									 <div class="kv-avatar center-block">
-									 <img src="/images/icons/kid.1215409b.png" class="avatar img-circle" alt="avatar">
+									 <img src="/images/icons/kid.png" class="avatar img-circle" alt="avatar">
 								        <input id="avatar" name="avatar" type="file" class="file-loading">
 								    </div>
 									
@@ -65,8 +65,8 @@
 							    isteven-multi-select
 							    input-model="domains"
 							    output-model="classes.document.domains"
-							    button-label="icon document.name"
-							    item-label="icon document.name"
+							    button-label="name"
+							    item-label="name"
 							    tick-property="ticked"
 							>
 							</div>
@@ -76,7 +76,7 @@
 									<!-- <select ng-model="classes.domains" multiple="true" class="form-control" ng-options="domain.name for domain in domains.data">
 									</select> -->
 
-									<div>{{classes.domains}}</div>
+									<div>{{classes.document.domains}}</div>
 								</div>
 							</div>
 						</div>
