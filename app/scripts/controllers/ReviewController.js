@@ -1,6 +1,6 @@
 angular.module('classupApp')
-	.controller('ReviewController',['$q','$scope','$state','$stateParams','ReviewService','ClassesService',
-		function($q,$scope,$state,$stateParams,ReviewService,ClassesService){
+	.controller('ReviewController',['$q','$http','$routeParams','$scope','$state','$stateParams','ReviewService','ClassesService',
+		function($q,$http,$routeParams,$scope,$state,$stateParams,ReviewService,ClassesService){
 
 var review={
 	"title":"good classes",
@@ -26,8 +26,21 @@ var classId = $stateParams.classId;
 				var sumOfRating = 0;
 				$scope.overall_rating = 0;
 				var size = 0;
-				ReviewService.getRatingForClasses(classId)
-				.then(function(classRatingList){
+				var reviewDetails = {
+
+					classId : classId,
+					overall_rating : 0,
+					noOfVotes : 0,
+					noOfReviews : 0
+
+				};
+				console.log(classId);
+				ReviewService.getReviewCount(classId)
+				.then(function(reviewCount){
+					
+					reviewDetails.noOfReviews = reviewCount;
+					ReviewService.getRatingForClasses(classId)
+					.then(function(classRatingList){
 					size = classRatingList.length;
 					console.log('size: '+size+"  , \n"+classRatingList);
 					_.each(classRatingList,function(classRating){
@@ -37,14 +50,20 @@ var classId = $stateParams.classId;
 					console.log(sumOfRating);
 					if(size > 0){
 						$scope.overall_rating = sumOfRating/size;	
+						reviewDetails.overall_rating = sumOfRating/size;
+						reviewDetails.noOfVotes = size;
 					}
-				
+					reviewDetails
 					console.log($scope.overall_rating);
-					ClassesService.updateOverallRating(classId,$scope.overall_rating)
+					ClassesService.updateOverallRating(reviewDetails)
 					.then(function(classes){
 						$state.go('classes.viewProfile',{id:classes.id});
 					})
 			
 				});
+				},function(error){
+					console.log(error);
+				});
+				
 				}
 		}])

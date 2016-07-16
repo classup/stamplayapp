@@ -1,28 +1,4 @@
-//var CB = require('cloudboost');
-var gzippo = require('gzippo');
-var express = require('express');
-var app = express();
-/*var morgan = require('morgan');         
-var bodyParser = require('body-parser');    
-var methodOverride = require('method-override'); */
-
-
- app.use(express.static(__dirname + "/dist"));
- app.get('/', function(req, res) {
-    res.sendfile('index.html', {root: __dirname })
-});
-
-  /*CB.CloudApp.init('nrzbkowpwcpq', '0828bc2b-111e-4051-9ab1-f1f64c5f4b13');
-  var classes = require('./routes/classes');
- app.use(express.logger('dev'));
-
-app.use(morgan('dev'));   
-app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
-app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-app.use(methodOverride());
-
-app.put('/api/classes/updateOverallRating',function(req,res){
+exports.updateOverallRating = function(req,res){
 	var classId = req.params.classId;
 	console.log('coming to server');
 	var sumOfRating = 0;
@@ -81,7 +57,4 @@ app.put('/api/classes/updateOverallRating',function(req,res){
 
 	
 		
-});
-*/
-  //app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-  app.listen(process.env.PORT || 5000);
+}

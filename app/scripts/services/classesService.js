@@ -159,14 +159,16 @@ angular.module("classupApp")
 
         },
 
-        updateOverallRating : function(classId, overall_rating){
+        updateOverallRating : function(reviewDetails){
             var q = $q.defer();
-            console.log(overall_rating);
+            console.log(reviewDetails.overall_rating);
             var classes = new CB.CloudQuery("classes");
-            classes.equalTo('id',classId);
+            classes.equalTo('id',reviewDetails.classId);
             classes.findOne({
                 success : function(classes){
-                    classes.set('overall_rating',overall_rating);
+                    classes.set('overall_rating',reviewDetails.overall_rating);
+                    classes.set('no_of_votes',reviewDetails.noOfVotes);
+                    classes.set('no_of_reviews',reviewDetails.noOfReviews);
                     classes.save({
                         success: function(classes){
                             console.log(classes);

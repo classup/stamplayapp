@@ -3,7 +3,7 @@ angular.module("classupApp")
   ["$q", "$http", "$rootScope", 
   function($q, $http, $rootScope) {
     return {
-    	addReview(classId,review){
+    	addReview : function(classId,review){
     		var q = $q.defer();
     		console.log(classId);
     		var classes = {};
@@ -66,6 +66,23 @@ angular.module("classupApp")
             	}
             });
             return q.promise;
+        },
+
+        getReviewCount : function(classId){
+            var q = $q.defer();
+            var reviews = new CB.CloudQuery("reviews");
+            reviews.get('classId',classId);
+            reviews.count({
+                success : function(reviewCount){
+                    console.log(reviewCount);
+                    q.resolve(reviewCount);
+                },
+                error : function(error){
+                    q.reject(error);
+                }
+
+            });
+                return q.promise;
         }
     }
 }
