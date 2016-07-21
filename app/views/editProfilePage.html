@@ -1,7 +1,7 @@
 
 <div class="section light-gray-bg">
 				<div class="container">
-					
+					{{classes.name}}
 					<form role="form" ng-submit="updateInfo()">
 						<div class="row">
 							<div class="col-md-4">
@@ -9,9 +9,9 @@
 							     flow-files-submitted="$flow.upload()"
 							     flow-file-success="$file.msg = $message">
 
-							  <input type="file" ng-model="classes.banner" flow-btn/>
+							  <input type="file" ng-model="classes.logo" flow-btn/>
 
-							  <img ng-model="classes.banner" flow-img="$flow.files[0]" src="{{classes.banner}}" class="avatar" alt="avatar"/>
+							  <img ng-model="classes.logo" flow-img="$flow.files[0]" src="{{classes.logo}}" class="avatar" alt="avatar"/>
 							</div>
 								<div class="form-group has-success has-feedback">
 									<label class="control-label">Class Logo</label>

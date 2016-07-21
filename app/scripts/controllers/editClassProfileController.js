@@ -104,7 +104,23 @@ angular.module('classupApp')
 				console.log(updatedClasses);*/
 				ClassesService.updateInfo($scope.classes)
 				.then(function(classes){
-					$state.go('classes.viewProfile',{id:classes.id});
+					console.log($scope.classes);
+					if($scope.classes.logo != null){
+						var logoFile = $scope.classes.logo;
+						var name = $scope.classes.name+"-logo.jpg";
+						var cloudFile = new CB.CloudFile(logoFile);
+						cloudFile.setName('name',name);
+						cloudFile.save({
+							success : function(cloudFile){
+								console.log(cloudFile.URL);
+									$state.go('classes.viewProfile',{id:classes.id});
+							},
+							error : function(error){
+								console.log(error);
+							}
+						})
+					}
+				
 				});
 			
 			
