@@ -14,6 +14,7 @@ angular.module("classupApp")
     		reviewObj.set("description",review.description);
     		reviewObj.set("rating",review.rating);
     		reviewObj.set("userId",$rootScope.currentUser);
+            reviewObj.set("classId_text",classId);
     		//reviewObj.set("classId",classes);
     		reviewObj.relate('classId','classes',classId);
     		console.log(reviewObj);
@@ -71,7 +72,7 @@ angular.module("classupApp")
         getReviewCount : function(classId){
             var q = $q.defer();
             var reviews = new CB.CloudQuery("reviews");
-            reviews.get('classId',classId);
+            reviews.equalTo('classId_text',classId);
             reviews.count({
                 success : function(reviewCount){
                     console.log(reviewCount);

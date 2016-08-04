@@ -1,20 +1,21 @@
-//var CB = require('cloudboost');
+var CB = require('cloudboost');
 var gzippo = require('gzippo');
 var express = require('express');
 var app = express();
-/*var morgan = require('morgan');         
+var morgan = require('morgan');         
 var bodyParser = require('body-parser');    
-var methodOverride = require('method-override'); */
+var methodOverride = require('method-override'); 
 
 
- app.use(express.static(__dirname + "/dist"));
+ app.use(express.static(__dirname + "/app"));
+ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+ app.use('/node_modules',  express.static(__dirname + '/node_modules'));
  app.get('/', function(req, res) {
     res.sendfile('index.html', {root: __dirname })
 });
 
-  /*CB.CloudApp.init('nrzbkowpwcpq', '0828bc2b-111e-4051-9ab1-f1f64c5f4b13');
+  CB.CloudApp.init('nrzbkowpwcpq', '1f822c28-d9cc-4100-b023-7520ddec6300');
   var classes = require('./routes/classes');
- app.use(express.logger('dev'));
 
 app.use(morgan('dev'));   
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
@@ -82,6 +83,6 @@ app.put('/api/classes/updateOverallRating',function(req,res){
 	
 		
 });
-*/
+
   //app.use(gzippo.staticGzip("" + __dirname + "/dist"));
   app.listen(process.env.PORT || 5000);
