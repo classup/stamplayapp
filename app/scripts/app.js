@@ -164,7 +164,7 @@ var app=angular
   var routeAdmin = function(route) { 
     return _.find(routesThatForAdmins,
       function (adminRoute) {
-        return _.startsWith(route, adminRoute);
+        return _.includes(route, adminRoute);
       });
   };
 
