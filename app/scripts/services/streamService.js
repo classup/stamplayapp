@@ -3,28 +3,28 @@ angular.module("classupApp")
   ["$q", "$http", "$stamplay","$rootScope", 
   function($q, $http, $stamplay,  $rootScope) {
   	return{
-  		addStream : function(stream) {
+  		addCourse : function(course) {
   			var q = $q.defer();
-            $stamplay.Object("courses").save(stream)
-            .then(function(stream) {
-                console.log(stream.name+ " stream created");
-                q.resolve(stream);
+            $stamplay.Object("courses").save(course)
+            .then(function(course) {
+                console.log(course.name+ " course created");
+                q.resolve(course);
             });
             return q.promise;
   		},
 
-  		getStreams : function() {
+  		getCourses : function() {
   			var q = $q.defer();
   			 $stamplay.Object("courses").get({})
-  			 	.then(function(streams){
-  			 		q.resolve(streams);
+  			 	.then(function(courses){
+  			 		q.resolve(courses);
   			 	},function(error){
 
   			 	});
   			 	return q.promise;
   		},
 
-  		getStream : function(streamId){
+  		getCourse : function(courseId){
   			var q = $q.defer();
   			 $stamplay.Object("courses").get({
   			 	id : streamId
@@ -38,7 +38,7 @@ angular.module("classupApp")
   			 	return q.promise;
   		},
 
-      getOtherStreams : function(classId){
+      getOtherCourses : function(classId){
         var q = $q.defer();
          $stamplay.Query("object","streams").notEqual('id',classId)
           .then(function(streams){

@@ -71,13 +71,8 @@
     	<h1><strong>DOMAIN</strong></h1>
     	</div> 
     	<div class="row">
-        	<ul>
-            	<li><input type="radio" name="domain" id="r1" checked="checked"  /><label for="r1">Arts</label></li>
-                <li><input type="radio" name="domain" id="r2"/><label for="r2">Commerce</label></li>
-                <li><input type="radio" name="domain" id="r3"/><label for="r3">Science</label></li>
-                <li><input type="radio"name="domain" id="r4" /><label for="r4">CA</label></li>
-                <li><input type="radio" name="domain" id="r5"/><label for="r5">Professional</label></li>
-                <li><input type="radio" name="domain" id="r5"/><label for="r5">Other</label></li>
+        	<ul ng-repeat = "domain in domains">
+            	<li><input type="radio" name="domain" ng-model="classes.domain" ><label>{{domain.name}}</label></li>
             </ul>
         </div>
     </div>
@@ -98,26 +93,22 @@
             </div>
        		 <div class="container-fluid subject-wrapper">
             <div class="container text-center" style="width:100%;">
-                <div class="row">
-                	<div class="col-md-12 text-center">
-                    	<p><strong>Add courses you offer.</strong></p>
-                    </div>
+            	<div class="col-md-12 text-center">
+                	<p><strong>Add courses you offer</strong></p>
+                </div>
+                <div class="row" ng-repeat="course in coursesField">
+                	
                     <div class="col-md-4">
-                        <span>Offered Course 1: </span>
+                        <span>Offered Course</span>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" placeholder="BMS" style="padding-left:10px;" />
+                        <input type="text" ng-model="classes.courses[$index].name" placeholder="{{course.placeholder}}" style="padding-left:10px;" />
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
-                        <span>Offered Course 2:  </span>
-                    </div>
-                    <div class="col-md-8">
-                        <input type="text" />
-                    </div>
+                    
                     <div class="col-lg-12 text-center">
-                         <a href="#" class="view-more-org" style="margin: 4% auto 0;">Add Another</a>
+                         <button ng-click="addfield()" class="view-more-org" style="margin: 4% auto 0;">Add Another</button>
                     </div>
                 </div>  
             </div>

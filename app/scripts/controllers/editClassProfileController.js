@@ -2,7 +2,9 @@ angular.module('classupApp')
 	.controller('editClassProfileCtrl',['$q','$scope','$state','$stateParams','StreamService','SubjectService','ClassesService',
 		function($q,$scope,$state,$stateParams,StreamService,SubjectService,ClassesService){
 		console.log('here it is'+ $stateParams.classDetails);
-		$scope.classes = {};
+		$scope.classes = {
+			courses:[]
+		};
 		$scope.updatedClasses = {};
 		$scope.streams = {};
 		$scope.subjects = {};
@@ -20,9 +22,9 @@ angular.module('classupApp')
 			});
 		}
 		
-		StreamService.getStreams()
-			.then(function(streams){
-				$scope.streams = streams;
+		StreamService.getCourses()
+			.then(function(courses){
+				$scope.courses = courses;
 				/*console.log($scope.streams);
 				_.each($scope.classes.courses,function(course){
 					_.each($scope.streams,function(stream){
@@ -155,4 +157,15 @@ angular.module('classupApp')
 			})
 			return ids;
 		}
+
+		  $scope.coursesField = [];
+		  angular.forEach($scope.courses,function(course){
+		  	$scope.coursesField.push({value: course.name , placeholder : 'Course Name'})
+		  })
+		  $scope.addfield=function(){
+		  	if($scope.classes.courses.length > 0)
+		  	console.log("course : "+ $scope.classes.courses[0].name);
+		    $scope.coursesField.push({value: 'hello',placeholder : 'Course Name'})
+		  }
+ 
 	}]);
