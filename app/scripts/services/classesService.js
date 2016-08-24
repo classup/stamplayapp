@@ -63,6 +63,7 @@ angular.module("classupApp")
 
             var q = $q.defer();
             var classes = new CB.CloudQuery("classes",id);
+            classes.include('courses');
             classes.findOne({
                 success : function(classes){
                     q.resolve(classes.document);

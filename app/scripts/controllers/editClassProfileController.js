@@ -2,9 +2,7 @@ angular.module('classupApp')
 	.controller('editClassProfileCtrl',['$q','$scope','$state','$stateParams','StreamService','SubjectService','ClassesService',
 		function($q,$scope,$state,$stateParams,StreamService,SubjectService,ClassesService){
 		console.log('here it is'+ $stateParams.classDetails);
-		$scope.classes = {
-			courses:[]
-		};
+		$scope.classes = {};
 		$scope.updatedClasses = {};
 		$scope.streams = {};
 		$scope.subjects = {};
@@ -13,47 +11,24 @@ angular.module('classupApp')
 		//console.log(StreamService.getOtherStreams($stateParams.id));
 		if($stateParams.classDetails != null){
 			$scope.classes= $stateParams.classDetails;
+			fillUpCoursesField()
 		}
 		else{
 			ClassesService.getClassesDetailsById($stateParams.id)
 			.then(function(classes){
-			$scope.classes = classes;
-			console.log($scope.classes);
+				$scope.classes = classes;
+				console.log(classes);
+				fillUpCoursesField();
 			});
 		}
-		
-		StreamService.getCourses()
-			.then(function(courses){
-				$scope.courses = courses;
-				/*console.log($scope.streams);
-				_.each($scope.classes.courses,function(course){
-					_.each($scope.streams,function(stream){
-						console.log(stream);
-						if(course.id === stream.id){
-							_.extend(stream,{ticked = true});
-						}
-					})
-				})
-				console.log($scope.streams);
-
-				angular.forEach($scope.classes.courses,function(course,key){
-					console.log(course);
-					angular.forEach($scope.streams.data,function(stream,streamKey){
-						if(course.id === stream.id){
-							console.log('ticked true');
-							stream.ticked = true;
-						}
-						else{
-							console.log('ticked false');
-							stream.ticked = false;
-						}
-					});
-				});
-				console.log($scope.streams);
-				*/
-			},function(error){
-				console.log('error in getting streams: '+error);
-			});
+		console.log($scope.classes);
+		var fillUpCoursesField = function(){
+			$scope.coursesField = [];
+			angular.forEach($scope.classes.courses,function(course){
+				console.log(course);
+				$scope.coursesField.push({value: course.name , placeholder : course.name});
+			})
+		}
 		SubjectService.getSubjects()
 			.then(function(subjects){
 				$scope.subjects = subjects;
@@ -158,11 +133,9 @@ angular.module('classupApp')
 			return ids;
 		}
 
-		  $scope.coursesField = [];
-		  angular.forEach($scope.courses,function(course){
-		  	$scope.coursesField.push({value: course.name , placeholder : 'Course Name'})
-		  })
+		  
 		  $scope.addfield=function(){
+		  	console.log($scope.classes.courses);
 		  	if($scope.classes.courses.length > 0)
 		  	console.log("course : "+ $scope.classes.courses[0].name);
 		    $scope.coursesField.push({value: 'hello',placeholder : 'Course Name'})
