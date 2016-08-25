@@ -1,13 +1,14 @@
 angular.module('classupApp')
-	.controller('editClassProfileCtrl',['$q','$scope','$state','$stateParams','StreamService','SubjectService','ClassesService',
-		function($q,$scope,$state,$stateParams,StreamService,SubjectService,ClassesService){
+	.controller('editClassProfileCtrl',['$q','$scope','$state','$stateParams','StreamService','SubjectService','ClassesService','PageService',
+		function($q,$scope,$state,$stateParams,StreamService,SubjectService,ClassesService,PageService){
 		console.log('here it is'+ $stateParams.classDetails);
 		$scope.classes = {};
 		$scope.updatedClasses = {};
 		$scope.streams = {};
 		$scope.subjects = {};
 		$scope.domains ={};
-		
+
+		PageService.setTitle($scope.classes.name + " - Edit Class Profile");
 		//console.log(StreamService.getOtherStreams($stateParams.id));
 		if($stateParams.classDetails != null){
 			$scope.classes= $stateParams.classDetails;
@@ -21,14 +22,17 @@ angular.module('classupApp')
 				fillUpCoursesField();
 			});
 		}
+
+		$scope.title = $scope.classes.name + " - Edit Class Profile";
 		console.log($scope.classes);
+
 		var fillUpCoursesField = function(){
-			$scope.coursesField = [];
+			$scope.coursesOfferred = [];
 			angular.forEach($scope.classes.courses,function(course){
 				console.log(course);
-				$scope.coursesField.push({value: course.name , placeholder : course.name});
+				$scope.coursesOfferred.push({value: course.name , placeholder : course.name});
 			})
-		}
+		};
 		SubjectService.getSubjects()
 			.then(function(subjects){
 				$scope.subjects = subjects;
@@ -39,10 +43,10 @@ angular.module('classupApp')
 		ClassesService.getDomains()
 			.then(function(domains){
 				console.log(domains);
-				makeDomainsListForDropdown(domains);
+				//makeDomainsListForDropdown(domains);
 			});
 
-		var makeDomainsListForDropdown = function(domains){
+		/*var makeDomainsListForDropdown = function(domains){
 			var domainsList = [];
 			_.each(domains,function(domain){
 				
@@ -50,7 +54,7 @@ angular.module('classupApp')
 			})
 			console.log(domainsList);
 			$scope.domains = domainsList;
-		};
+		};*/
 
 		var makeCoursesListForDropdown = function(courses){
 			var coursesList = [];
@@ -133,12 +137,12 @@ angular.module('classupApp')
 			return ids;
 		}
 
-		  
+		  $scope.coursesField =[];
 		  $scope.addfield=function(){
 		  	console.log($scope.classes.courses);
 		  	if($scope.classes.courses.length > 0)
-		  	console.log("course : "+ $scope.classes.courses[0].name);
-		    $scope.coursesField.push({value: 'hello',placeholder : 'Course Name'})
+		  	console.log("course : "+ $scope.classes);
+		    $scope.coursesField.push({placeholder : 'Course Name'})
 		  }
  
 	}]);

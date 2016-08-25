@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-Stamplay.init("getclassup");
+
 var app=angular
   .module('classupApp', [
     'ngAnimate',
@@ -43,7 +43,7 @@ var app=angular
   });
 });*/
 
-  app.config(function ($stateProvider, $urlRouterProvider) {
+  app.config(function ($stateProvider, $urlRouterProvider,$locationProvider) {
     $urlRouterProvider.otherwise("dashboard");
      $stateProvider
     .state('main', {
@@ -135,7 +135,8 @@ var app=angular
       url:'/search',
       controller:'SearchController'
     })
-
+    
+    
   })
   .run(["$rootScope", "AccountService","$location",'UserService', 
     function($rootScope, AccountService,$location,UserService) {
@@ -148,6 +149,7 @@ var app=angular
       console.log('no currentUser');
     }
     );
+
 
     // enumerate routes that don't need authentication
   var routesThatDontRequireAuth = ['/login'];
@@ -168,7 +170,7 @@ var app=angular
       });
   };
 
-
+  
   $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
     // if route requires auth and user is not logged in
     console.log($location.url() + "   "+ AccountService.isLoggedIn() );

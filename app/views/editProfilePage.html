@@ -93,22 +93,32 @@
             </div>
        		 <div class="container-fluid subject-wrapper">
             <div class="container text-center" style="width:100%;">
-            	<div class="col-md-12 text-center">
-                	<p><strong>Add courses you offer</strong></p>
+            	
+                <div class="row" ng-repeat="course in coursesOfferred">
+                    
+                    <div class="col-md-4">
+                        <span><strong>Course Offered :</strong></span>
+                    </div>
+                    <div class="col-md-8">
+                        <span>{{course.value}}</span>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <p><strong>Add more courses you offer</strong></p>
                 </div>
                 <div class="row" ng-repeat="course in coursesField">
                 	
                     <div class="col-md-4">
-                        <span>Offered Course</span>
+                        <span>Course Name:</span>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" ng-model="classes.courses[$index].name" value="{{course.value}}" style="padding-left:10px;" />
+                        <input type="text" ng-model="classes.courses[$index].name" style="padding-left:10px;" placeholder="course.placeholder" />
                     </div>
                 </div>
                 <div class="row">
                     
                     <div class="col-lg-12 text-center">
-                         <button ng-click="addfield()" class="view-more-org" style="margin: 4% auto 0;">Add Another</button>
+                         <button ng-click="addfield()" class="view-more-org" style="margin: 4% auto 0;">Add Another Course</button>
                     </div>
                 </div>  
             </div>

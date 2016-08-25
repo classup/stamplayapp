@@ -64,6 +64,8 @@ angular.module("classupApp")
             var q = $q.defer();
             var classes = new CB.CloudQuery("classes",id);
             classes.include('courses');
+            classes.include('domain');
+            classes.include('courses');
             classes.findOne({
                 success : function(classes){
                     q.resolve(classes.document);
@@ -78,6 +80,7 @@ angular.module("classupApp")
 
             var q = $q.defer();
             var classes = new CB.CloudQuery("classes");
+            classes.include('courses');
             classes.equalTo("name",name);
             classes.findOne({
                 success : function(classes){
@@ -116,9 +119,14 @@ angular.module("classupApp")
                 classesObj.findOne({
                     success : function(classesObj){
                         console.log(classesObj);
-                        classesObj.set("name",classes.name);
-                        classesObj.set("tagline",classes.tagline);
-                        classesObj.set("owner",classes.owner);
+                        if(classes.name != null)
+                            classesObj.set("name",classes.name);
+                        if(classes.tagline != null)
+                            classesObj.set("tagline",classes.tagline);
+                        if(classes.owner != null)
+                            classesObj.set("owner",classes.owner);
+                        if(classes.courses != null)
+                            classesObj.set("courses",classes.courses);
                         //add more fields here
                         classesObj.save({
                             success : function(classes){
