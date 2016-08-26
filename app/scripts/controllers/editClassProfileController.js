@@ -1,18 +1,29 @@
 angular.module('classupApp')
-	.controller('editClassProfileCtrl',['$q','$scope','$state','$stateParams','StreamService','SubjectService','ClassesService','PageService',
-		function($q,$scope,$state,$stateParams,StreamService,SubjectService,ClassesService,PageService){
+	.controller('editClassProfileCtrl',['$q','$scope','$state','$stateParams','StreamService','SubjectService','ClassesService','PageService','CourseService',
+		function($q,$scope,$state,$stateParams,StreamService,SubjectService,ClassesService,PageService,CourseService){
 		console.log('here it is'+ $stateParams.classDetails);
 		$scope.classes = {};
 		$scope.updatedClasses = {};
 		$scope.streams = {};
 		$scope.subjects = {};
 		$scope.domains ={};
-
+		$scope.newCourses = [];
+		$scope.newCoursesIdAfterSaved = [];
+		$scope.restOfCourses = [];
 		PageService.setTitle($scope.classes.name + " - Edit Class Profile");
 		//console.log(StreamService.getOtherStreams($stateParams.id));
+
+		var fillUpCoursesField = function(){
+			$scope.coursesOfferred = [];
+			angular.forEach($scope.classes.courses,function(course){
+				console.log(course);
+				$scope.coursesOfferred.push(course);
+			})
+		};
+
 		if($stateParams.classDetails != null){
 			$scope.classes= $stateParams.classDetails;
-			fillUpCoursesField()
+			fillUpCoursesField();
 		}
 		else{
 			ClassesService.getClassesDetailsById($stateParams.id)
@@ -23,16 +34,9 @@ angular.module('classupApp')
 			});
 		}
 
-		$scope.title = $scope.classes.name + " - Edit Class Profile";
 		console.log($scope.classes);
 
-		var fillUpCoursesField = function(){
-			$scope.coursesOfferred = [];
-			angular.forEach($scope.classes.courses,function(course){
-				console.log(course);
-				$scope.coursesOfferred.push({value: course.name , placeholder : course.name});
-			})
-		};
+		
 		SubjectService.getSubjects()
 			.then(function(subjects){
 				$scope.subjects = subjects;
@@ -43,26 +47,25 @@ angular.module('classupApp')
 		ClassesService.getDomains()
 			.then(function(domains){
 				console.log(domains);
-				//makeDomainsListForDropdown(domains);
+				$scope.domains = domains;
 			});
 
-		/*var makeDomainsListForDropdown = function(domains){
-			var domainsList = [];
-			_.each(domains,function(domain){
-				
-				domainsList.push(domain.document);
-			})
-			console.log(domainsList);
-			$scope.domains = domainsList;
-		};*/
-
-		var makeCoursesListForDropdown = function(courses){
-			var coursesList = [];
-			_.each(courses,function(course){
-				coursesList.push(course.document);
-			})
-			$scope.courses = coursesList;
+		$scope.addNewCourses = function(){	
+		CourseService.addCourses($scope.newCourses)
+			.then(function(courses){
+				console.log("courses added");
+			},function(error){
+				console.log("error in adding courses");
+			});
 		};
+
+		CourseService.getCourses()
+			.then(function(courses){
+				console.log(courses);
+				$scope.restOfCourses = _.filter(courses, function(obj){ return !_.findWhere($scope.coursesOfferred, obj); });
+				console.log($scope.restOfCourses);
+			})
+
 		$scope.addNewStream = function(){
 			StreamService.addStream($scope.stream)
 				.then(function(stream){
@@ -77,6 +80,7 @@ angular.module('classupApp')
 		$scope.addStream = function(){
 			$scope.classes.streams.push($scope.streamsOptions);
 		};
+
 
 		$scope.updateInfo = function(){
 			
@@ -139,7 +143,7 @@ angular.module('classupApp')
 
 		  $scope.coursesField =[];
 		  $scope.addfield=function(){
-		  	console.log($scope.classes.courses);
+		  	console.log($scope.classes);
 		  	if($scope.classes.courses.length > 0)
 		  	console.log("course : "+ $scope.classes);
 		    $scope.coursesField.push({placeholder : 'Course Name'})

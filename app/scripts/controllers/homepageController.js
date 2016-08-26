@@ -16,6 +16,7 @@ angular.module('classupApp')
       if($rootScope.currentUser != undefined){
     	ClassesService.getAllClassesOfCurrentUser()
 			    .then(function(classes){
+            console.log(classes);
 			    	renderClassesList(classes);
 			    },function(err){
 			    	renderClassesList(classes);
