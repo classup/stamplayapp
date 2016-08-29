@@ -7,9 +7,15 @@ angular.module('classupApp')
 		$scope.streams = {};
 		$scope.subjects = {};
 		$scope.domains ={};
+
 		$scope.newCourses = [];
 		$scope.newCoursesIdAfterSaved = [];
 		$scope.restOfCourses = [];
+		$scope.presentCoursesSelected = [];
+
+		var finalCourses = [];
+
+
 		PageService.setTitle($scope.classes.name + " - Edit Class Profile");
 		//console.log(StreamService.getOtherStreams($stateParams.id));
 
@@ -18,6 +24,7 @@ angular.module('classupApp')
 			angular.forEach($scope.classes.courses,function(course){
 				console.log(course);
 				$scope.coursesOfferred.push(course);
+				finalCourses.push(course.id);
 			})
 		};
 
@@ -62,10 +69,30 @@ angular.module('classupApp')
 		CourseService.getCourses()
 			.then(function(courses){
 				console.log(courses);
-				$scope.restOfCourses = _.filter(courses, function(obj){ return !_.findWhere($scope.coursesOfferred, obj); });
+				$scope.restOfCourses = filterRestOfCourses(courses,$scope.coursesOfferred);
 				console.log($scope.restOfCourses);
 			})
 
+		var filterRestOfCourses = function(allCourses, coursesOfferred){
+			var restOfCourses =[];
+			angular.forEach(allCourses,function(course){
+				var presentFlag = false;
+				angular.forEach(coursesOfferred,function(courseOffered){
+					if(course.id == courseOffered.id){
+						presentFlag = true;
+					}
+				});
+				if(presentFlag == false){
+					restOfCourses.push({
+						id : course.id,
+						name : course.document.name
+					});
+				}
+			});
+
+			return restOfCourses;
+
+		};
 		$scope.addNewStream = function(){
 			StreamService.addStream($scope.stream)
 				.then(function(stream){
