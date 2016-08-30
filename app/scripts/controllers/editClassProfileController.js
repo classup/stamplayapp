@@ -15,6 +15,13 @@ angular.module('classupApp')
 
 		var finalCourses = [];
 
+		$scope.newSubjects = [];
+		$scope.newSubjectIdAfterSaved = [];
+		$scope.restOfSubjects = [];
+		$scope.presentSubjectsSelected = [];
+
+		var finalSubjects = [];
+
 
 		PageService.setTitle($scope.classes.name + " - Edit Class Profile");
 		//console.log(StreamService.getOtherStreams($stateParams.id));
@@ -27,7 +34,14 @@ angular.module('classupApp')
 				finalCourses.push(course.id);
 			})
 		};
-
+		var fillUpSubjectsField = function(){
+			$scope.SubjectsOfferred = [];
+			angular.forEach($scope.classes.subjects,function(subject){
+				console.log(subject);
+				$scope.SubjectsOfferred.push(subject);
+				finalCourses.push(course.id);
+			})
+		};
 		if($stateParams.classDetails != null){
 			$scope.classes= $stateParams.classDetails;
 			fillUpCoursesField();
@@ -57,13 +71,19 @@ angular.module('classupApp')
 				$scope.domains = domains;
 			});
 
-		$scope.addNewCourses = function(){	
-		CourseService.addCourses($scope.newCourses)
-			.then(function(courses){
-				console.log("courses added");
-			},function(error){
-				console.log("error in adding courses");
-			});
+		$scope.addNewCourses = function(){
+			if($scope.newCourses.length > 0){
+			CourseService.addCourses($scope.newCourses)
+				.then(function(courses){
+					angular.forEach(courses,function(course){
+						finalCourses.push(course.id);
+					});
+					$scope.coursesField =[];
+					console.log("courses added");
+				},function(error){
+					console.log("error in adding courses");
+				});
+			}
 		};
 
 		CourseService.getCourses()
@@ -93,12 +113,12 @@ angular.module('classupApp')
 			return restOfCourses;
 
 		};
-		$scope.addNewStream = function(){
+		/*$scope.addNewCourses = function(){
 			StreamService.addStream($scope.stream)
 				.then(function(stream){
 					$scope.stream.push(stream);
 				});
-		};
+		};*/
 
 		$scope.getStreams = function(){
 			
@@ -108,12 +128,13 @@ angular.module('classupApp')
 			$scope.classes.streams.push($scope.streamsOptions);
 		};
 
+		$scope.updateClassesInfo = function(){
 
-		$scope.updateInfo = function(){
+		}
+
+/*		$scope.updateInfo = function(){
 			
-			/*makeUpdatedClassesObject($scope.classes)
-			.then(function(updatedClasses){
-				console.log(updatedClasses);*/
+			
 				ClassesService.updateInfo($scope.classes)
 				.then(function(classes){
 					console.log($scope.classes);
@@ -136,7 +157,7 @@ angular.module('classupApp')
 				});
 			
 			
-		};
+		};*/
 		function makeUpdatedClassesObject(classes){
 			var q= $q.defer();
 			console.log(classes);
