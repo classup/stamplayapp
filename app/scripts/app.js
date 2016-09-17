@@ -44,8 +44,12 @@ var app=angular
 });*/
 
   app.config(function ($stateProvider, $urlRouterProvider,$locationProvider) {
-    $urlRouterProvider.otherwise("dashboard");
+    $urlRouterProvider.otherwise("homepage");
      $stateProvider
+     .state('homepage',{
+      url : '/homepage',
+      templateUrl : "views/homepage.html"
+     })
     .state('main', {
       url: "/main",
       templateUrl: "views/main.html"
@@ -77,11 +81,7 @@ var app=angular
       templateUrl: "views/aboutUsEdit.html",
       controller: 'AboutUsCtrl'
     })
-    .state('homepage',{
-      url: "/",
-      templateUrl: "views/newClassHomepage.html"
-      
-    })
+    
     .state('classes',{
       url:"/classes/:name",
       abstract:true,
@@ -91,7 +91,7 @@ var app=angular
       url: '',
       parent:'classes',
       controller: 'classHomepageCtrl',
-      templateUrl: 'views/newClassHomepage.html',
+      templateUrl: 'views/class-profile.html',
       params: {
         id:null,
         name:null
