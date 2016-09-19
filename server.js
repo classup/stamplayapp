@@ -7,9 +7,9 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override'); 
 
 
- app.use(express.static(__dirname + "/app"));
- app.use('/bower_components',  express.static(__dirname + '/bower_components'));
- app.use('/node_modules',  express.static(__dirname + '/node_modules'));
+ app.use(express.static(__dirname + "/dist"));
+/* app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+ app.use('/node_modules',  express.static(__dirname + '/node_modules'));*/
  app.get('/', function(req, res) {
     res.sendfile('index.html', {root: __dirname })
 });
